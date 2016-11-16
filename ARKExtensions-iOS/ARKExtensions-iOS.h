@@ -14,6 +14,6 @@ FOUNDATION_EXPORT double ARKExtensions_iOSVersionNumber;
 //! Project version string for ARKExtensions-iOS.
 FOUNDATION_EXPORT const unsigned char ARKExtensions_iOSVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <ARKExtensions_iOS/PublicHeader.h>
+#import <ARKExtensions/NSTimer+Blocks.h>
 
 

@@ -6,7 +6,7 @@
 //  Copyright © 2016 arkdan. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension UIStoryboard {
     @nonobjc public static var main: UIStoryboard {
@@ -25,7 +25,7 @@ extension UIViewController {
     }
 }
 
-@objc class TapGestureRecognizer: UITapGestureRecognizer {
+@objc public class TapGestureRecognizer: UITapGestureRecognizer {
     private let action: (TapGestureRecognizer) -> ()
     public init(action: @escaping (TapGestureRecognizer) -> ()) {
         self.action = action

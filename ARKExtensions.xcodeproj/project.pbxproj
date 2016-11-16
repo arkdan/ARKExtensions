@@ -13,6 +13,10 @@
 		6BDD3B0A1DDCEE78002B47A7 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3B091DDCEE78002B47A7 /* Constraints.swift */; };
 		6BDD3B0C1DDCEEFC002B47A7 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3B0B1DDCEEFC002B47A7 /* Misc.swift */; };
 		6BDD3B0D1DDCEFDF002B47A7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3AFA1DDCEDE7002B47A7 /* Extensions.swift */; };
+		6BDD3B101DDCF15D002B47A7 /* NSTimer+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BDD3B0E1DDCF15D002B47A7 /* NSTimer+Blocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BDD3B111DDCF15D002B47A7 /* NSTimer+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3B0F1DDCF15D002B47A7 /* NSTimer+Blocks.m */; };
+		6BDD3B121DDCF167002B47A7 /* NSTimer+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3B0F1DDCF15D002B47A7 /* NSTimer+Blocks.m */; };
+		6BDD3B131DDCF4CA002B47A7 /* NSTimer+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BDD3B0E1DDCF15D002B47A7 /* NSTimer+Blocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,8 @@
 		6BDD3B041DDCEE5E002B47A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BDD3B091DDCEE78002B47A7 /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		6BDD3B0B1DDCEEFC002B47A7 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
+		6BDD3B0E1DDCF15D002B47A7 /* NSTimer+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Blocks.h"; sourceTree = "<group>"; };
+		6BDD3B0F1DDCF15D002B47A7 /* NSTimer+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Blocks.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,8 @@
 			children = (
 				6BDD3AF21DDCECC6002B47A7 /* ARKExtensions.h */,
 				6BDD3AFA1DDCEDE7002B47A7 /* Extensions.swift */,
+				6BDD3B0E1DDCF15D002B47A7 /* NSTimer+Blocks.h */,
+				6BDD3B0F1DDCF15D002B47A7 /* NSTimer+Blocks.m */,
 				6BDD3AF31DDCECC6002B47A7 /* Info.plist */,
 			);
 			path = ARKExtensions;
@@ -92,6 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BDD3AF41DDCECC6002B47A7 /* ARKExtensions.h in Headers */,
+				6BDD3B101DDCF15D002B47A7 /* NSTimer+Blocks.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +109,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BDD3B051DDCEE5E002B47A7 /* ARKExtensions-iOS.h in Headers */,
+				6BDD3B131DDCF4CA002B47A7 /* NSTimer+Blocks.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BDD3B111DDCF15D002B47A7 /* NSTimer+Blocks.m in Sources */,
 				6BDD3AFB1DDCEDE7002B47A7 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,6 +224,7 @@
 			files = (
 				6BDD3B0A1DDCEE78002B47A7 /* Constraints.swift in Sources */,
 				6BDD3B0D1DDCEFDF002B47A7 /* Extensions.swift in Sources */,
+				6BDD3B121DDCF167002B47A7 /* NSTimer+Blocks.m in Sources */,
 				6BDD3B0C1DDCEEFC002B47A7 /* Misc.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

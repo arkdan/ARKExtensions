@@ -6,7 +6,7 @@
 //  Copyright © 2016 arkdan. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for ARKExtensions.
 FOUNDATION_EXPORT double ARKExtensionsVersionNumber;
@@ -14,6 +14,6 @@ FOUNDATION_EXPORT double ARKExtensionsVersionNumber;
 //! Project version string for ARKExtensions.
 FOUNDATION_EXPORT const unsigned char ARKExtensionsVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <ARKExtensions/PublicHeader.h>
+#import <ARKExtensions/NSTimer+Blocks.h>
 
 

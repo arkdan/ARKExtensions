@@ -61,7 +61,7 @@ extension UIView {
         return c
     }
 
-    typealias ViewAttribute = (view: UIView, attribute: NSLayoutAttribute)
+    public typealias ViewAttribute = (view: UIView, attribute: NSLayoutAttribute)
 
     @discardableResult
     public func constraint(_ attribute: NSLayoutAttribute, to sibbling: ViewAttribute, constant: CGFloat = 0) -> NSLayoutConstraint {
