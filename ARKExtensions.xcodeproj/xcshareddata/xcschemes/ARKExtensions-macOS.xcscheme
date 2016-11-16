@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6BDD3AEE1DDCECC6002B47A7"
+               BlueprintIdentifier = "6BDD3B181DDCF8CB002B47A7"
                BuildableName = "ARKExtensions.framework"
-               BlueprintName = "ARKExtensions"
+               BlueprintName = "ARKExtensions-macOS"
                ReferencedContainer = "container:ARKExtensions.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6BDD3AEE1DDCECC6002B47A7"
+            BlueprintIdentifier = "6BDD3B181DDCF8CB002B47A7"
             BuildableName = "ARKExtensions.framework"
-            BlueprintName = "ARKExtensions"
+            BlueprintName = "ARKExtensions-macOS"
             ReferencedContainer = "container:ARKExtensions.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6BDD3AEE1DDCECC6002B47A7"
+            BlueprintIdentifier = "6BDD3B181DDCF8CB002B47A7"
             BuildableName = "ARKExtensions.framework"
-            BlueprintName = "ARKExtensions"
+            BlueprintName = "ARKExtensions-macOS"
             ReferencedContainer = "container:ARKExtensions.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
