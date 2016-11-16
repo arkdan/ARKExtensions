@@ -20,7 +20,7 @@
 		6BDD3AF21DDCECC6002B47A7 /* ARKExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARKExtensions.h; sourceTree = "<group>"; };
 		6BDD3AF31DDCECC6002B47A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BDD3AFA1DDCEDE7002B47A7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		6BDD3B011DDCEE5E002B47A7 /* ARKExtensions-iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "ARKExtensions-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BDD3B011DDCEE5E002B47A7 /* ARKExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARKExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BDD3B031DDCEE5E002B47A7 /* ARKExtensions-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARKExtensions-iOS.h"; sourceTree = "<group>"; };
 		6BDD3B041DDCEE5E002B47A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BDD3B091DDCEE78002B47A7 /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				6BDD3AEF1DDCECC6002B47A7 /* ARKExtensions.framework */,
-				6BDD3B011DDCEE5E002B47A7 /* ARKExtensions-iOS.framework */,
+				6BDD3B011DDCEE5E002B47A7 /* ARKExtensions.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,7 +139,7 @@
 			);
 			name = "ARKExtensions-iOS";
 			productName = "ARKExtensions-iOS";
-			productReference = 6BDD3B011DDCEE5E002B47A7 /* ARKExtensions-iOS.framework */;
+			productReference = 6BDD3B011DDCEE5E002B47A7 /* ARKExtensions.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -331,7 +331,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arkdan.ARKExtensions;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ARKExtensions;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -353,7 +353,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arkdan.ARKExtensions;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ARKExtensions;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -374,7 +374,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arkdan.ARKExtensions-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ARKExtensions;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -398,7 +398,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arkdan.ARKExtensions-iOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ARKExtensions;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
