@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6BF80E641DF3848C00F0635C"
+               BuildableName = "ARKExtensions-macOSTests.xctest"
+               BlueprintName = "ARKExtensions-macOSTests"
+               ReferencedContainer = "container:ARKExtensions.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "6BDD3B181DDCF8CB002B47A7"
+            BuildableName = "ARKExtensions.framework"
+            BlueprintName = "ARKExtensions-macOS"
+            ReferencedContainer = "container:ARKExtensions.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

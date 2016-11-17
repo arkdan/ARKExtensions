@@ -10,7 +10,7 @@
 
 @interface NSTimer (Blocks)
 
-/// The funny name, so it won't conflict with newly added same methods in iOS10 & macOS 10.12
+/// The funny name, so it won't conflict with newly added same methods in Foundation iOS10 & macOS 10.12
 /// This is here for older systems
 + (instancetype)ssscheduledTimerWithTimeInterval:(NSTimeInterval)timeInterval repeats:(BOOL)repeats
                                            block:(void (^)(NSTimer *))block;
