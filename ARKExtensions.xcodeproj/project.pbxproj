@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6BCA66A11DF38AEF00A7B851 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BCA66A01DF38AEF00A7B851 /* Nimble.framework */; };
+		6B6E6B5F1DF3A42000A13915 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B6E6B5E1DF3A42000A13915 /* Nimble.framework */; };
+		6B6E6B611DF3A47F00A13915 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6B6E6B5E1DF3A42000A13915 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6BDD3B051DDCEE5E002B47A7 /* ARKExtensions-iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BDD3B031DDCEE5E002B47A7 /* ARKExtensions-iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6BDD3B0A1DDCEE78002B47A7 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3B091DDCEE78002B47A7 /* Constraints.swift */; };
 		6BDD3B0C1DDCEEFC002B47A7 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3B0B1DDCEEFC002B47A7 /* Misc.swift */; };
@@ -34,8 +35,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6B6E6B601DF3A47700A13915 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6B6E6B611DF3A47F00A13915 /* Nimble.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		6BCA66A01DF38AEF00A7B851 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
+		6B6E6B5E1DF3A42000A13915 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = "<group>"; };
 		6BDD3AFA1DDCEDE7002B47A7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6BDD3B011DDCEE5E002B47A7 /* ARKExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARKExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BDD3B031DDCEE5E002B47A7 /* ARKExtensions-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARKExtensions-iOS.h"; sourceTree = "<group>"; };
@@ -73,7 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BF80E6A1DF3848C00F0635C /* ARKExtensions.framework in Frameworks */,
-				6BCA66A11DF38AEF00A7B851 /* Nimble.framework in Frameworks */,
+				6B6E6B5F1DF3A42000A13915 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +97,6 @@
 		6BCA669F1DF38AC700A7B851 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6BCA66A01DF38AEF00A7B851 /* Nimble.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -144,6 +157,7 @@
 		6BF80E661DF3848C00F0635C /* ARKExtensions-macOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				6B6E6B5E1DF3A42000A13915 /* Nimble.framework */,
 				6BF80E671DF3848C00F0635C /* EnumerableTests.swift */,
 				6BF80E691DF3848C00F0635C /* Info.plist */,
 			);
@@ -217,6 +231,7 @@
 				6BF80E611DF3848C00F0635C /* Sources */,
 				6BF80E621DF3848C00F0635C /* Frameworks */,
 				6BF80E631DF3848C00F0635C /* Resources */,
+				6B6E6B601DF3A47700A13915 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -530,9 +545,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/ARKExtensions-macOSTests";
 				INFOPLIST_FILE = "ARKExtensions-macOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks $(PROJECT_DIR)/Carthage/Build/Mac";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arkdan.ARKExtensions-macOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -543,9 +558,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/ARKExtensions-macOSTests";
 				INFOPLIST_FILE = "ARKExtensions-macOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks $(PROJECT_DIR)/Carthage/Build/Mac";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.arkdan.ARKExtensions-macOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
