@@ -96,3 +96,10 @@ extension FileManager {
     }
 }
 
+
+extension Double {
+    func round(_ digits: Int) -> Double {
+        let divisor = pow(10.0, Double(digits))
+        return Darwin.round(self * divisor) / divisor
+    }
+}
