@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol Enumerable: RawRepresentable {
+public protocol Enumerable {
     static var first: Self? { get }
     func next() -> Self?
 }
@@ -28,7 +28,7 @@ extension Enumerable {
     }
 }
 
-extension Enumerable where RawValue == Int {
+extension Enumerable where Self: RawRepresentable, Self.RawValue == Int {
 
     /// no value on last
     public func next() -> Self? {
