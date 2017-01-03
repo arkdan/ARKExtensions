@@ -2,7 +2,7 @@
 //  ARKExtensions_macOSTests.swift
 //  ARKExtensions-macOSTests
 //
-//  Created by Daniyelian, Arkadzi on 12/4/16.
+//  Created by ark dan on 12/4/16.
 //  Copyright © 2016 arkdan. All rights reserved.
 //
 

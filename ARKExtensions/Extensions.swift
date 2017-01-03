@@ -3,7 +3,7 @@
 //  TimeLoggerScandi
 //
 //  Created by ark dan on 10/4/16.
-//  Copyright © 2016 ark.dan. All rights reserved.
+//  Copyright © 2016 arkdan. All rights reserved.
 //
 
 import Foundation
@@ -33,6 +33,12 @@ extension DispatchTime {
 
 public func delay(_ time: Double, queue: DispatchQueue = DispatchQueue.main, block: @escaping () -> ()) {
     queue.asyncAfter(deadline: DispatchTime.fromNow(seconds: time), execute: block)
+}
+
+extension DispatchQueue {
+    func delayed(_ time: Double, block: @escaping () -> ()) {
+        asyncAfter(deadline: DispatchTime.fromNow(seconds: time), execute: block)
+    }
 }
 
 

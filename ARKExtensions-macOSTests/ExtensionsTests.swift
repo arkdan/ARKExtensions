@@ -2,7 +2,7 @@
 //  ExtensionsTests.swift
 //  ARKExtensions
 //
-//  Created by Daniyelian, Arkadzi on 12/14/16.
+//  Created by arkdan on 12/14/16.
 //  Copyright © 2016 arkdan. All rights reserved.
 //
 
