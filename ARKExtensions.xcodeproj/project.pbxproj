@@ -13,13 +13,13 @@
 		6BADB69E1E1C1B2500251374 /* UIViewController+AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB69D1E1C1B2500251374 /* UIViewController+AlertController.swift */; };
 		6BADB6A01E1C1EAB00251374 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB69F1E1C1EAB00251374 /* Operation.swift */; };
 		6BADB6A11E1C1EAB00251374 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB69F1E1C1EAB00251374 /* Operation.swift */; };
-		6BDD3B051DDCEE5E002B47A7 /* ARKExtensions-iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BDD3B031DDCEE5E002B47A7 /* ARKExtensions-iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BDD3B051DDCEE5E002B47A7 /* ARKExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BDD3B031DDCEE5E002B47A7 /* ARKExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6BDD3B0A1DDCEE78002B47A7 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3B091DDCEE78002B47A7 /* Constraints.swift */; };
 		6BDD3B0C1DDCEEFC002B47A7 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3B0B1DDCEEFC002B47A7 /* Misc.swift */; };
 		6BDD3B0D1DDCEFDF002B47A7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3AFA1DDCEDE7002B47A7 /* Extensions.swift */; };
 		6BDD3B121DDCF167002B47A7 /* NSTimer+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3B0F1DDCF15D002B47A7 /* NSTimer+Blocks.m */; };
 		6BDD3B131DDCF4CA002B47A7 /* NSTimer+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BDD3B0E1DDCF15D002B47A7 /* NSTimer+Blocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6BDD3B1D1DDCF8CB002B47A7 /* ARKExtensions-macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BDD3B1B1DDCF8CB002B47A7 /* ARKExtensions-macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6BDD3B1D1DDCF8CB002B47A7 /* ARKExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BDD3B1B1DDCF8CB002B47A7 /* ARKExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6BDD3B211DDCF951002B47A7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3AFA1DDCEDE7002B47A7 /* Extensions.swift */; };
 		6BDD3B221DDCF957002B47A7 /* NSTimer+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BDD3B0E1DDCF15D002B47A7 /* NSTimer+Blocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6BDD3B231DDCF95E002B47A7 /* NSTimer+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3B0F1DDCF15D002B47A7 /* NSTimer+Blocks.m */; };
@@ -59,14 +59,14 @@
 		6BADB69F1E1C1EAB00251374 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		6BDD3AFA1DDCEDE7002B47A7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6BDD3B011DDCEE5E002B47A7 /* ARKExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARKExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6BDD3B031DDCEE5E002B47A7 /* ARKExtensions-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARKExtensions-iOS.h"; sourceTree = "<group>"; };
+		6BDD3B031DDCEE5E002B47A7 /* ARKExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARKExtensions.h; sourceTree = "<group>"; };
 		6BDD3B041DDCEE5E002B47A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BDD3B091DDCEE78002B47A7 /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		6BDD3B0B1DDCEEFC002B47A7 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		6BDD3B0E1DDCF15D002B47A7 /* NSTimer+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Blocks.h"; sourceTree = "<group>"; };
 		6BDD3B0F1DDCF15D002B47A7 /* NSTimer+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Blocks.m"; sourceTree = "<group>"; };
 		6BDD3B191DDCF8CB002B47A7 /* ARKExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARKExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6BDD3B1B1DDCF8CB002B47A7 /* ARKExtensions-macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ARKExtensions-macOS.h"; sourceTree = "<group>"; };
+		6BDD3B1B1DDCF8CB002B47A7 /* ARKExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARKExtensions.h; sourceTree = "<group>"; };
 		6BDD3B1C1DDCF8CB002B47A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BF80E501DF382BC00F0635C /* Enumerable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerable.swift; sourceTree = "<group>"; };
 		6BF80E651DF3848C00F0635C /* ARKExtensions-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ARKExtensions-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,7 +145,7 @@
 		6BDD3B021DDCEE5E002B47A7 /* ARKExtensions-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				6BDD3B031DDCEE5E002B47A7 /* ARKExtensions-iOS.h */,
+				6BDD3B031DDCEE5E002B47A7 /* ARKExtensions.h */,
 				6BDD3B041DDCEE5E002B47A7 /* Info.plist */,
 				6BDD3B091DDCEE78002B47A7 /* Constraints.swift */,
 				6BADB69D1E1C1B2500251374 /* UIViewController+AlertController.swift */,
@@ -157,7 +157,7 @@
 		6BDD3B1A1DDCF8CB002B47A7 /* ARKExtensions-macOS */ = {
 			isa = PBXGroup;
 			children = (
-				6BDD3B1B1DDCF8CB002B47A7 /* ARKExtensions-macOS.h */,
+				6BDD3B1B1DDCF8CB002B47A7 /* ARKExtensions.h */,
 				6BDD3B1C1DDCF8CB002B47A7 /* Info.plist */,
 			);
 			path = "ARKExtensions-macOS";
@@ -181,7 +181,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BDD3B051DDCEE5E002B47A7 /* ARKExtensions-iOS.h in Headers */,
+				6BDD3B051DDCEE5E002B47A7 /* ARKExtensions.h in Headers */,
 				6BDD3B131DDCF4CA002B47A7 /* NSTimer+Blocks.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,7 +190,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BDD3B1D1DDCF8CB002B47A7 /* ARKExtensions-macOS.h in Headers */,
+				6BDD3B1D1DDCF8CB002B47A7 /* ARKExtensions.h in Headers */,
 				6BDD3B221DDCF957002B47A7 /* NSTimer+Blocks.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
