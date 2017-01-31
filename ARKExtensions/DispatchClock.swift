@@ -39,7 +39,6 @@ public class DispatchClock {
     deinit {
         dispatchSourceTimer?.cancel()
         dispatchSourceTimer = nil
-        print("--- DispatchClock deinit")
     }
 
     public func cancel() {
