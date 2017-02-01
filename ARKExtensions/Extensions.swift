@@ -9,13 +9,13 @@
 import Foundation
 
 
-public func onMain(_ closure: @escaping (() -> ())) {
+public func onMain(_ closure: @escaping () -> Void) {
     if Thread.isMainThread {
         closure()
     } else {
-        DispatchQueue.main.async(execute: {
+        DispatchQueue.main.async {
             closure()
-        })
+        }
     }
 }
 
@@ -56,23 +56,23 @@ extension String {
         return NSRange(location: 0, length: characters.count)
     }
 
-    public func index(from: Int) -> Index {
-        return self.index(startIndex, offsetBy: from)
+    public func index(at offset: Int) -> Index {
+        return self.index(startIndex, offsetBy: offset)
     }
 
     public func substring(from: Int) -> String {
-        let fromIndex = index(from: from)
+        let fromIndex = index(at: from)
         return substring(from: fromIndex)
     }
 
     public func substring(to: Int) -> String {
-        let toIndex = index(from: to)
+        let toIndex = index(at: to)
         return substring(to: toIndex)
     }
 
     public func substring(with range: Range<Int>) -> String {
-        let startIndex = index(from: range.lowerBound)
-        let endIndex = index(from: range.upperBound)
+        let startIndex = index(at: range.lowerBound)
+        let endIndex = index(at: range.upperBound)
         return substring(with: startIndex..<endIndex)
     }
 }
