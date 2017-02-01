@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6B0DEA431E0159D600FD04A5 /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0DEA421E0159D600FD04A5 /* ExtensionsTests.swift */; };
-		6B1B559F1E40AB57005F8852 /* DispatchClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B559E1E40AB57005F8852 /* DispatchClock.swift */; };
-		6B1B55A11E40ACB3005F8852 /* DispatchClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B55A01E40ACB3005F8852 /* DispatchClockTests.swift */; };
-		6B1B55A21E40AD63005F8852 /* DispatchClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B559E1E40AB57005F8852 /* DispatchClock.swift */; };
+		6B1B559F1E40AB57005F8852 /* DispatchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B559E1E40AB57005F8852 /* DispatchTimer.swift */; };
+		6B1B55A11E40ACB3005F8852 /* DispatchTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B55A01E40ACB3005F8852 /* DispatchTimerTests.swift */; };
+		6B1B55A21E40AD63005F8852 /* DispatchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B559E1E40AB57005F8852 /* DispatchTimer.swift */; };
 		6B6E6B5F1DF3A42000A13915 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B6E6B5E1DF3A42000A13915 /* Nimble.framework */; };
 		6B6E6B611DF3A47F00A13915 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6B6E6B5E1DF3A42000A13915 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6BADB69E1E1C1B2500251374 /* UIViewController+AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB69D1E1C1B2500251374 /* UIViewController+AlertController.swift */; };
@@ -57,8 +57,8 @@
 
 /* Begin PBXFileReference section */
 		6B0DEA421E0159D600FD04A5 /* ExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
-		6B1B559E1E40AB57005F8852 /* DispatchClock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchClock.swift; sourceTree = "<group>"; };
-		6B1B55A01E40ACB3005F8852 /* DispatchClockTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchClockTests.swift; sourceTree = "<group>"; };
+		6B1B559E1E40AB57005F8852 /* DispatchTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DispatchTimer.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		6B1B55A01E40ACB3005F8852 /* DispatchTimerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DispatchTimerTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6B6E6B5E1DF3A42000A13915 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = "<group>"; };
 		6BADB69D1E1C1B2500251374 /* UIViewController+AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+AlertController.swift"; sourceTree = "<group>"; };
 		6BADB69F1E1C1EAB00251374 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 				6BDD3B0E1DDCF15D002B47A7 /* NSTimer+Blocks.h */,
 				6BDD3B0F1DDCF15D002B47A7 /* NSTimer+Blocks.m */,
 				6BADB69F1E1C1EAB00251374 /* Operation.swift */,
-				6B1B559E1E40AB57005F8852 /* DispatchClock.swift */,
+				6B1B559E1E40AB57005F8852 /* DispatchTimer.swift */,
 			);
 			path = ARKExtensions;
 			sourceTree = "<group>";
@@ -172,7 +172,7 @@
 		6BF80E661DF3848C00F0635C /* ARKExtensions-macOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				6B1B55A01E40ACB3005F8852 /* DispatchClockTests.swift */,
+				6B1B55A01E40ACB3005F8852 /* DispatchTimerTests.swift */,
 				6B0DEA421E0159D600FD04A5 /* ExtensionsTests.swift */,
 				6B6E6B5E1DF3A42000A13915 /* Nimble.framework */,
 				6BF80E671DF3848C00F0635C /* EnumerableTests.swift */,
@@ -335,7 +335,7 @@
 			files = (
 				6BDD3B0A1DDCEE78002B47A7 /* Constraints.swift in Sources */,
 				6BADB6A01E1C1EAB00251374 /* Operation.swift in Sources */,
-				6B1B559F1E40AB57005F8852 /* DispatchClock.swift in Sources */,
+				6B1B559F1E40AB57005F8852 /* DispatchTimer.swift in Sources */,
 				6BADB69E1E1C1B2500251374 /* UIViewController+AlertController.swift in Sources */,
 				6BDD3B0D1DDCEFDF002B47A7 /* Extensions.swift in Sources */,
 				6BDD3B121DDCF167002B47A7 /* NSTimer+Blocks.m in Sources */,
@@ -350,7 +350,7 @@
 			files = (
 				6BF80E761DF3870400F0635C /* Enumerable.swift in Sources */,
 				6BDD3B231DDCF95E002B47A7 /* NSTimer+Blocks.m in Sources */,
-				6B1B55A21E40AD63005F8852 /* DispatchClock.swift in Sources */,
+				6B1B55A21E40AD63005F8852 /* DispatchTimer.swift in Sources */,
 				6BDD3B211DDCF951002B47A7 /* Extensions.swift in Sources */,
 				6BADB6A11E1C1EAB00251374 /* Operation.swift in Sources */,
 			);
@@ -360,7 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B1B55A11E40ACB3005F8852 /* DispatchClockTests.swift in Sources */,
+				6B1B55A11E40ACB3005F8852 /* DispatchTimerTests.swift in Sources */,
 				6BF80E681DF3848C00F0635C /* EnumerableTests.swift in Sources */,
 				6B0DEA431E0159D600FD04A5 /* ExtensionsTests.swift in Sources */,
 			);

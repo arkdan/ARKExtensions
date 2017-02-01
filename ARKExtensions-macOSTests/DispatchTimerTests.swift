@@ -1,5 +1,5 @@
 //
-//  DispatchClockTests.swift
+//  DispatchTimerTests.swift
 //  ARKExtensions
 //
 //  Created by ark dan on 1/31/17.
@@ -10,19 +10,16 @@ import XCTest
 import Nimble
 @testable import ARKExtensions
 
-class DispatchClockTests: XCTestCase {
+class DispatchTimerTests: XCTestCase {
 
-
-    var clock: DispatchClock?
-    var count = 0
+    let queue = DispatchQueue(label: "xxxxx")
 
     override func setUp() {
         super.setUp()
-
     }
 
     func testTimeInterval() {
-        var clock = DispatchClock(timeInterval: -1, queue: DispatchQueue(label: "rrr"))
+        var clock = DispatchTimer(timeInterval: -1, queue: DispatchQueue(label: "rrr"))
         expect(clock.timeInterval) == 1e-6
 
         clock.timeInterval = -3
@@ -40,17 +37,16 @@ class DispatchClockTests: XCTestCase {
         clock.timeInterval = 0.5
         expect(clock.timeInterval) == 0.5
 
-        clock = DispatchClock(timeInterval: 0, queue: DispatchQueue(label: "rrr"))
+        clock = DispatchTimer(timeInterval: 0, queue: DispatchQueue(label: "rrr"))
         expect(clock.timeInterval) == 1e-6
     }
 
     func testInitWithBlock() {
         let exp = expectation(description: #function)
-        let queue = DispatchQueue(label: "xxxxx")
         let ti = 0.1
         let times = 10
         var count = 0
-        let _ = DispatchClock(timeInterval: ti, queue: queue) { clock in
+        let _ = DispatchTimer(timeInterval: ti, queue: queue) { clock in
             print("1")
             count += 1
             if count == times {
@@ -58,21 +54,21 @@ class DispatchClockTests: XCTestCase {
             }
         }
 
-        Timer.ssscheduledTimer(withTimeInterval: ti * Double(times + 5), repeats: false) { (_) in
+        let time = ti * Double(times + 5)
+        delay(time) {
             expect(count) == times
             exp.fulfill()
         }
 
-        waitForExpectations(timeout: 2, handler: nil)
+        waitForExpectations(timeout: time + 0.01, handler: nil)
     }
 
     func testBlockLater() {
         let exp = expectation(description: #function)
-        let queue = DispatchQueue(label: "xxxxx")
         let ti = 0.1
         let times = 10
         var count = 0
-        let clock = DispatchClock(timeInterval: ti, queue: queue)
+        let clock = DispatchTimer(timeInterval: ti, queue: queue)
         clock.block = { clock in
             print("2")
             count += 1
@@ -81,21 +77,21 @@ class DispatchClockTests: XCTestCase {
             }
         }
 
-        Timer.ssscheduledTimer(withTimeInterval: ti * Double(times + 5), repeats: false) { (_) in
+        let time = ti * Double(times + 5)
+        delay(time) {
             expect(count) == times
             exp.fulfill()
         }
 
-        waitForExpectations(timeout: 2, handler: nil)
+        waitForExpectations(timeout: time + 0.01, handler: nil)
     }
 
     func testBlockSwitch() {
         let exp = expectation(description: #function)
-        let queue = DispatchQueue(label: "xxxxx")
         let ti = 0.1
         let times = 10
         var count = 0
-        let clock = DispatchClock(timeInterval: ti, queue: queue)
+        let clock = DispatchTimer(timeInterval: ti, queue: queue)
 
         clock.block = { clock in
             print("11")
@@ -111,29 +107,33 @@ class DispatchClockTests: XCTestCase {
             }
         }
 
-        Timer.ssscheduledTimer(withTimeInterval: ti * Double(times + 7), repeats: false) { (_) in
+        let time = ti * Double(times + 7)
+        delay(time) {
             expect(count) == times
             exp.fulfill()
         }
 
-        waitForExpectations(timeout: 2, handler: nil)
+        waitForExpectations(timeout: time + 0.01, handler: nil)
     }
+
+    var clock: DispatchTimer?
 
     func testNoRetainCycle() {
         let exp = expectation(description: #function)
-        let queue = DispatchQueue(label: "xxxxx")
         let ti = 0.1
         let times = 10
-        self.clock = DispatchClock(timeInterval: ti, queue: queue)
+        self.clock = DispatchTimer(timeInterval: ti, queue: queue)
+
+        var count = 0
 
         self.clock?.block = { clock in
             print("11")
-            self.count += 1
-            if self.count == 5 {
+            count += 1
+            if count == 5 {
                 clock.block = { clock in
                     print("22")
-                    self.count += 1
-                    if self.count == times {
+                    count += 1
+                    if count == times {
                         clock.cancel()
                         self.clock = nil
                     }
@@ -141,13 +141,59 @@ class DispatchClockTests: XCTestCase {
             }
         }
 
-        Timer.ssscheduledTimer(withTimeInterval: ti * Double(times + 7), repeats: false) { (_) in
-            expect(self.count) == times
+        let time = ti * Double(times + 7)
+        delay(time) {
+            expect(count) == times
             expect(self.clock).to(beNil())
             exp.fulfill()
         }
 
-        waitForExpectations(timeout: 2, handler: nil)
+        waitForExpectations(timeout: time + 0.01, handler: nil)
+    }
+
+    func testFireCount() {
+        let exp = expectation(description: #function)
+
+        let interval = 0.01
+        var count = 0
+
+        let block: (DispatchTimer) -> () = { clock in
+            count += 1
+            expect(clock.fireCount) == count
+        }
+
+        let max = 100
+        let clock = DispatchTimer(timeInterval: interval, queue: queue, maxCount: max, block: block)
+        let time = interval * Double(max) + interval * 5
+        delay(time) {
+            expect(clock.fireCount) == max
+            exp.fulfill()
+        }
+
+        waitForExpectations(timeout: time + 0.01, handler: nil)
+    }
+
+    func testFireCountZero() {
+        let exp = expectation(description: #function)
+
+        let interval = 0.01
+        var count = 0
+
+        let block: (DispatchTimer) -> () = { clock in
+            count += 1
+            expect(clock.fireCount) == count
+        }
+
+        let max = 0
+        let clock = DispatchTimer(timeInterval: interval, queue: queue, maxCount: max, block: block)
+        let time = interval * Double(max) + interval * 5
+        delay(time) {
+            expect(clock.fireCount) == max
+            expect(count) == max
+            exp.fulfill()
+        }
+
+        waitForExpectations(timeout: time + 0.01, handler: nil)
     }
 
 }

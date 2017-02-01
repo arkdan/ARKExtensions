@@ -1,5 +1,5 @@
 //
-//  DispatchClock.swift
+//  DispatchTimer.swift
 //  ARKExtensions
 //
 //  Created by ark dan on 1/31/17.
@@ -8,7 +8,23 @@
 
 import Foundation
 
-public class DispatchClock {
+public class DispatchTimer {
+
+    public enum FireCount: Equatable {
+        case infinite
+        case count(Int)
+
+        public static func ==(lhs: FireCount, rhs: FireCount) -> Bool {
+            switch (lhs, rhs) {
+            case (.infinite, .infinite):
+                return true
+            case (.count(let c1), .count(let c2)):
+                return c1 == c2
+            default:
+                return false
+            }
+        }
+    }
 
     public var timeInterval: Double {
         didSet {
@@ -23,14 +39,17 @@ public class DispatchClock {
     }
 
     public let queue: DispatchQueue
-    public var block: ((DispatchClock) -> Void)?
+    public var block: ((DispatchTimer) -> Void)?
+    private(set) public var fireCount: Int = 0
+    private(set) public var maxFireCount: Int
 
     fileprivate var dispatchSourceTimer: DispatchSourceTimer?
 
 
-    public init(timeInterval: Double, queue: DispatchQueue, block: ((DispatchClock) -> Void)? = nil) {
+    public init(timeInterval: Double, queue: DispatchQueue, maxCount: Int = .max, block: ((DispatchTimer) -> Void)? = nil) {
         self.timeInterval = timeInterval >= 1e-6 ? timeInterval : 1e-6
         self.queue = queue
+        self.maxFireCount = maxCount
         self.block = block
 
         restart()
@@ -54,9 +73,25 @@ public class DispatchClock {
         let leeway = DispatchTimeInterval.nanoseconds(1)
         dispatchSourceTimer?.scheduleRepeating(deadline: DispatchTime.now(), interval: interval, leeway: leeway)
 
-        dispatchSourceTimer?.setEventHandler {
-            self.block?(self)
+        let handler: () -> ()
+        if maxFireCount == Int.max {
+            handler = {
+                self.fireCount += 1
+                self.block?(self)
+            }
+        } else {
+            handler = {
+                guard self.fireCount < self.maxFireCount else {
+                    self.cancel()
+                    return
+                }
+
+                self.fireCount += 1
+                self.block?(self)
+            }
         }
+
+        dispatchSourceTimer?.setEventHandler(handler: handler)
         dispatchSourceTimer?.resume()
     }
 }
