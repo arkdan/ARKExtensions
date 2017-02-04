@@ -21,7 +21,7 @@ let timer100 = DispatchTimer(timeInterval: 0.1, queue: queue, maxCount: 100) { t
 }
 ```
 
-## delay
+### delay
 
 Executes a closure asynchronously after `delay` seconds. Optionally pass the queue to execute on. Default `.main`
 
@@ -35,7 +35,7 @@ delay(2, queue: queue) {
 }
 ```
 
-## Strings
+### Strings
 
 Brings back `substring()` to/from/range with `Int`s
 
@@ -52,3 +52,17 @@ substring = original.substring(with: 5..<6)
 expect(substring) == "5"
 ```
 
+### Double
+round(digits: Int) mostly for printing
+```swift
+let double = 0.123456789;
+let rounded = double.round(2)
+expect(rounded) == 0.12
+```
+### Collection
+safe subscript - nil if out of bounds
+```swift
+let double = 0.123456789;
+let rounded = double.round(2)
+expect(rounded) == 0.12
+```
