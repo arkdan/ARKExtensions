@@ -62,7 +62,6 @@ expect(rounded) == 0.12
 ### Collection
 safe subscript - nil if out of bounds
 ```swift
-let double = 0.123456789;
-let rounded = double.round(2)
-expect(rounded) == 0.12
+guard let element = array[safe: 100500] else { return }
+// do stuff with element
 ```
