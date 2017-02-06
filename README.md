@@ -1,5 +1,11 @@
 # ARKExtensions
 
+
+### Carthage
+```
+github "arkdan/ARKExtensions"
+```
+
 ## DispatchTimer
 
 Executes a closure on specified dispatch queue, with specified time intervals, for specified number of times (optionally).
