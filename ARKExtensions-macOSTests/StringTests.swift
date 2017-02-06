@@ -2,7 +2,7 @@
 //  StringTests.swift
 //  ARKExtensions
 //
-//  Created by Daniyelian, Arkadzi on 2/1/17.
+//  Created by ark dan on 2/1/17.
 //  Copyright © 2017 arkdan. All rights reserved.
 //
 

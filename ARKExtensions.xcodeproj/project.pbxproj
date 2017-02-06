@@ -17,6 +17,7 @@
 		6BADB6A01E1C1EAB00251374 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB69F1E1C1EAB00251374 /* Operation.swift */; };
 		6BADB6A11E1C1EAB00251374 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB69F1E1C1EAB00251374 /* Operation.swift */; };
 		6BAE83A61E426C0F00E35E07 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE83A51E426C0F00E35E07 /* StringTests.swift */; };
+		6BAE83C91E48EAB500E35E07 /* OperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE83C81E48EAB500E35E07 /* OperationTest.swift */; };
 		6BDD3B051DDCEE5E002B47A7 /* ARKExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BDD3B031DDCEE5E002B47A7 /* ARKExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6BDD3B0A1DDCEE78002B47A7 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3B091DDCEE78002B47A7 /* Constraints.swift */; };
 		6BDD3B0C1DDCEEFC002B47A7 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3B0B1DDCEEFC002B47A7 /* Misc.swift */; };
@@ -64,6 +65,7 @@
 		6BADB69D1E1C1B2500251374 /* UIViewController+AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+AlertController.swift"; sourceTree = "<group>"; };
 		6BADB69F1E1C1EAB00251374 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		6BAE83A51E426C0F00E35E07 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
+		6BAE83C81E48EAB500E35E07 /* OperationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationTest.swift; sourceTree = "<group>"; };
 		6BDD3AFA1DDCEDE7002B47A7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6BDD3B011DDCEE5E002B47A7 /* ARKExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARKExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BDD3B031DDCEE5E002B47A7 /* ARKExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARKExtensions.h; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		6BF80E661DF3848C00F0635C /* ARKExtensions-macOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				6BAE83C81E48EAB500E35E07 /* OperationTest.swift */,
 				6BAE83A51E426C0F00E35E07 /* StringTests.swift */,
 				6B1B55A01E40ACB3005F8852 /* DispatchTimerTests.swift */,
 				6B0DEA421E0159D600FD04A5 /* ExtensionsTests.swift */,
@@ -364,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B1B55A11E40ACB3005F8852 /* DispatchTimerTests.swift in Sources */,
+				6BAE83C91E48EAB500E35E07 /* OperationTest.swift in Sources */,
 				6BF80E681DF3848C00F0635C /* EnumerableTests.swift in Sources */,
 				6BAE83A61E426C0F00E35E07 /* StringTests.swift in Sources */,
 				6B0DEA431E0159D600FD04A5 /* ExtensionsTests.swift in Sources */,

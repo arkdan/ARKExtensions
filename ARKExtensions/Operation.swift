@@ -8,9 +8,11 @@
 
 import Foundation
 
-class OOperation: Operation {
+open class OOperation: Operation {
 
-    override var isAsynchronous: Bool {
+    fileprivate var privateCompletionBlock: ((OOperation) -> Void)?
+
+    override open var isAsynchronous: Bool {
         return true
     }
 
@@ -23,7 +25,7 @@ class OOperation: Operation {
         }
     }
 
-    override var isExecuting: Bool {
+    override open var isExecuting: Bool {
         return _executing
     }
 
@@ -36,11 +38,11 @@ class OOperation: Operation {
         }
     }
 
-    override var isFinished: Bool {
+    override open var isFinished: Bool {
         return _finished
     }
 
-    override func start() {
+    override open func start() {
         if isCancelled {
             finish()
             return
@@ -50,14 +52,35 @@ class OOperation: Operation {
         execute()
     }
 
-    func execute() {
+    open func execute() {
         fatalError("Must override")
     }
 
-    func finish() {
+    open func finish() {
         _executing = false
         _finished = true
+        privateCompletionBlock?(self)
     }
 
+}
+
+open class OOperationQueue: OperationQueue {
+
+    open var completionBlock: (() -> Void)?
+
+    override open func addOperation(_ operation: Operation) {
+        guard let op = operation as? OOperation else {
+            fatalError("This class only works with OOperation objects")
+        }
+
+        super.addOperation(op)
+
+        op.privateCompletionBlock = { operation in
+            if self.operationCount == 0 {
+                self.completionBlock?()
+            }
+        }
+    }
+    
 }
 
