@@ -10,8 +10,6 @@ import Foundation
 
 class OOperation: Operation {
 
-    var execution: ((_ finished: @escaping (Void) -> Void) -> Void)?
-
     override var isAsynchronous: Bool {
         return true
     }
@@ -43,13 +41,17 @@ class OOperation: Operation {
     }
 
     override func start() {
-        guard let execute = self.execution, !isCancelled else {
+        if isCancelled {
             finish()
             return
         }
 
         _executing = true
-        execute(finish)
+        execute()
+    }
+
+    func execute() {
+        fatalError("Must override")
     }
 
     func finish() {

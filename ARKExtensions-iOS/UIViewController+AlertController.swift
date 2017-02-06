@@ -17,15 +17,15 @@ private let alertQueue: OperationQueue = {
 }()
 
 extension UIViewController {
-    public class func presentAlerttt(title: String?, message: String?, cancelButtonTitle: String, otherButtonTitles:[String]? = nil, handler:((Int) -> ())? = nil) {
+    public class func presentAlert(title: String?, message: String?, cancelButtonTitle: String, otherButtonTitles:[String]? = nil, handler:((Int) -> ())? = nil) {
         if let window = UIApplication.shared.delegate?.window,
             let rootVC = window!.rootViewController {
-            rootVC.presentAlerttt(title: title, message: message, cancelButtonTitle: cancelButtonTitle,
+            rootVC.presentAlert(title: title, message: message, cancelButtonTitle: cancelButtonTitle,
                     otherButtonTitles: otherButtonTitles, handler: handler)
         }
     }
 
-    public func presentAlerttt(title: String?, message: String?, cancelButtonTitle: String, otherButtonTitles: [String]?, handler: ((Int) -> ())?) {
+    public func presentAlert(title: String?, message: String?, cancelButtonTitle: String, otherButtonTitles: [String]?, handler: ((Int) -> ())?) {
 
         let op = OOperation()
         op.execution = { finished in

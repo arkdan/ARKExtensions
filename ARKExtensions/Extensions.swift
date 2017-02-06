@@ -36,7 +36,7 @@ public func delay(_ time: Double, queue: DispatchQueue = DispatchQueue.main, blo
 }
 
 extension DispatchQueue {
-    func delayed(_ time: Double, block: @escaping () -> ()) {
+    public func delayed(_ time: Double, block: @escaping () -> ()) {
         asyncAfter(deadline: DispatchTime.fromNow(seconds: time), execute: block)
     }
 }
@@ -104,7 +104,7 @@ extension FileManager {
 
 
 extension Double {
-    func round(_ digits: Int) -> Double {
+    public func round(_ digits: UInt) -> Double {
         let divisor = pow(10.0, Double(digits))
         return Darwin.round(self * divisor) / divisor
     }
