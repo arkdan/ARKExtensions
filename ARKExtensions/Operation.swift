@@ -8,9 +8,23 @@
 
 import Foundation
 
+public typealias Execution = (_ finished: @escaping () -> Void) -> Void
+
 open class OOperation: Operation {
 
     fileprivate var privateCompletionBlock: ((OOperation) -> Void)?
+
+    /// provide either 'execution' block, or override func execute(). The block takes priority.
+    open var executionBlock: Execution?
+
+    public init(block: @escaping Execution) {
+        super.init()
+        executionBlock = block
+    }
+
+    public override init() {
+        super.init()
+    }
 
     override open var isAsynchronous: Bool {
         return true
@@ -49,7 +63,11 @@ open class OOperation: Operation {
         }
 
         _executing = true
-        execute()
+        if let execution = self.executionBlock {
+            execution(finish)
+        } else {
+            execute()
+        }
     }
 
     open func execute() {
@@ -61,7 +79,7 @@ open class OOperation: Operation {
         _finished = true
         privateCompletionBlock?(self)
     }
-
+    
 }
 
 open class OOperationQueue: OperationQueue {
@@ -78,6 +96,7 @@ open class OOperationQueue: OperationQueue {
         op.privateCompletionBlock = { operation in
             if self.operationCount == 0 {
                 self.completionBlock?()
+                self.completionBlock = nil
             }
         }
     }

@@ -12,21 +12,16 @@ import Nimble
 
 class DelayOperation: OOperation {
 
-    var started: ((DelayOperation) -> Void)?
-    let delay: Double
-
     private(set) var executed = false
 
     init(delay: Double) {
-        self.delay = delay
         super.init()
-    }
 
-    override func execute() {
-        started?(self)
-        ARKExtensions.delay(delay) {
-            self.executed = true
-            self.finish()
+        self.executionBlock = { finished in
+            ARKExtensions.delay(delay) {
+                self.executed = true
+                finished()
+            }
         }
     }
 }
