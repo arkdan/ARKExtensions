@@ -36,4 +36,13 @@ class ExtensionsTests: XCTestCase {
         expect(array[safe: 7]).to(beNil())
     }
 
+
+    func testObjectAddress() {
+        let object = NSObject()
+        let addressString = NSString(format: "%p", object) as String
+        let iii = address(of: object)
+        let sss = "0x" + String(iii, radix: 16)
+        expect(sss) == addressString
+    }
+
 }

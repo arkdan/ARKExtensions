@@ -109,3 +109,7 @@ extension Double {
         return Darwin.round(self * divisor) / divisor
     }
 }
+
+public func address(of object: AnyObject) -> Int {
+    return unsafeBitCast(object, to: Int.self)
+}
