@@ -173,6 +173,27 @@ class DispatchTimerTests: XCTestCase {
         waitForExpectations(timeout: time + 0.01, handler: nil)
     }
 
+    func testFireTime() {
+        let exp = expectation(description: #function)
+        let interval = 0.1
+        let maxCount = 20
+        var count = 0
+
+        var date = Date()
+        let _ = DispatchTimer(timeInterval: interval, queue: queue, maxCount: maxCount) { (timer) in
+            count += 1
+            let newDate = Date()
+            expect(newDate.timeIntervalSince(date)).to(beCloseTo(interval, within: 0.02))
+            date = newDate
+            if timer.fireCount == maxCount {
+                expect(count) == maxCount
+                exp.fulfill()
+            }
+        }
+
+        waitForExpectations(timeout: interval * Double(maxCount) + 1, handler: nil)
+    }
+
     func testFireCountZero() {
         let exp = expectation(description: #function)
 

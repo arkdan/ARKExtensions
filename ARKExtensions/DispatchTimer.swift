@@ -10,22 +10,6 @@ import Foundation
 
 public class DispatchTimer {
 
-    public enum FireCount: Equatable {
-        case infinite
-        case count(Int)
-
-        public static func ==(lhs: FireCount, rhs: FireCount) -> Bool {
-            switch (lhs, rhs) {
-            case (.infinite, .infinite):
-                return true
-            case (.count(let c1), .count(let c2)):
-                return c1 == c2
-            default:
-                return false
-            }
-        }
-    }
-
     public var timeInterval: Double {
         didSet {
             if timeInterval < 1e-6 {
@@ -69,9 +53,9 @@ public class DispatchTimer {
         dispatchSourceTimer = nil
 
         dispatchSourceTimer = DispatchSource.makeTimerSource(queue: queue)
-        let interval = DispatchTimeInterval.nanoseconds(Int(timeInterval * 1e9))
-        let leeway = DispatchTimeInterval.nanoseconds(1)
-        dispatchSourceTimer?.scheduleRepeating(deadline: DispatchTime.now(), interval: interval, leeway: leeway)
+        dispatchSourceTimer?.scheduleRepeating(deadline: .fromNow(seconds: timeInterval),
+                                               interval: .withSeconds(timeInterval),
+                                               leeway: .nanoseconds(1))
 
         let handler: () -> ()
         if maxFireCount == Int.max {
