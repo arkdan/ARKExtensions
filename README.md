@@ -5,9 +5,9 @@
 
 [substring(Int)](https://github.com/arkdan/ARKExtensions#Strings)
 
-[Double round](https://github.com/arkdan/ARKExtensions#delay)
+[Double round](https://github.com/arkdan/ARKExtensions#Double)
 
-[Collection[safe: Index]](https://github.com/arkdan/ARKExtensions#delay)
+[Collection[safe: Index]](https://github.com/arkdan/ARKExtensions#Collection)
 
 ### Installation
 Please use carthage:
