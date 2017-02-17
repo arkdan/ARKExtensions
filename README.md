@@ -1,13 +1,13 @@
 ## Just tools
-[DispatchTimer](https://github.com/arkdan/ARKExtensions#DispatchTimer)
+[DispatchTimer](https://github.com/arkdan/ARKExtensions#dispatchtimer)
 
 [Dispatch delay](https://github.com/arkdan/ARKExtensions#delay)
 
-[substring(Int)](https://github.com/arkdan/ARKExtensions#Strings)
+[substring(Int)](https://github.com/arkdan/ARKExtensions#strings)
 
-[Double round](https://github.com/arkdan/ARKExtensions#Double)
+[Double round](https://github.com/arkdan/ARKExtensions#double)
 
-[Collection[safe: Index]](https://github.com/arkdan/ARKExtensions#Collection)
+[Collection[safe: Index]](https://github.com/arkdan/ARKExtensions#collection)
 
 ### Installation
 Please use carthage:
