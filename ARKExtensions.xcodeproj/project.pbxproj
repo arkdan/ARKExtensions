@@ -18,6 +18,10 @@
 		6BADB6A11E1C1EAB00251374 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB69F1E1C1EAB00251374 /* Operation.swift */; };
 		6BAE83A61E426C0F00E35E07 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE83A51E426C0F00E35E07 /* StringTests.swift */; };
 		6BAE83C91E48EAB500E35E07 /* OperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE83C81E48EAB500E35E07 /* OperationTest.swift */; };
+		6BD3A8AC1E58F1B5001CD84D /* ConstraintsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3A8AB1E58F1B5001CD84D /* ConstraintsTests.swift */; };
+		6BD3A8AE1E58F1B5001CD84D /* ARKExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BDD3B011DDCEE5E002B47A7 /* ARKExtensions.framework */; };
+		6BD3A8B51E59A769001CD84D /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD3A8B41E59A769001CD84D /* Nimble.framework */; };
+		6BD3A8B71E59AAD6001CD84D /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6BD3A8B41E59A769001CD84D /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6BDD3B051DDCEE5E002B47A7 /* ARKExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BDD3B031DDCEE5E002B47A7 /* ARKExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6BDD3B0A1DDCEE78002B47A7 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3B091DDCEE78002B47A7 /* Constraints.swift */; };
 		6BDD3B0C1DDCEEFC002B47A7 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3B0B1DDCEEFC002B47A7 /* Misc.swift */; };
@@ -35,6 +39,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6BD3A8AF1E58F1B5001CD84D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BDD3AE61DDCECC6002B47A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6BDD3B001DDCEE5E002B47A7;
+			remoteInfo = "ARKExtensions-iOS";
+		};
 		6BF80E6B1DF3848C00F0635C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6BDD3AE61DDCECC6002B47A7 /* Project object */;
@@ -55,6 +66,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6BD3A8B61E59AAC9001CD84D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6BD3A8B71E59AAD6001CD84D /* Nimble.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +87,10 @@
 		6BADB69F1E1C1EAB00251374 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		6BAE83A51E426C0F00E35E07 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		6BAE83C81E48EAB500E35E07 /* OperationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationTest.swift; sourceTree = "<group>"; };
+		6BD3A8A91E58F1B5001CD84D /* ARKExtensions-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ARKExtensions-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BD3A8AB1E58F1B5001CD84D /* ConstraintsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsTests.swift; sourceTree = "<group>"; };
+		6BD3A8AD1E58F1B5001CD84D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BD3A8B41E59A769001CD84D /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nimble.framework; sourceTree = "<group>"; };
 		6BDD3AFA1DDCEDE7002B47A7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6BDD3B011DDCEE5E002B47A7 /* ARKExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARKExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BDD3B031DDCEE5E002B47A7 /* ARKExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARKExtensions.h; sourceTree = "<group>"; };
@@ -84,6 +109,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6BD3A8A61E58F1B5001CD84D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BD3A8AE1E58F1B5001CD84D /* ARKExtensions.framework in Frameworks */,
+				6BD3A8B51E59A769001CD84D /* Nimble.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6BDD3AFD1DDCEE5E002B47A7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -117,6 +151,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6BD3A8AA1E58F1B5001CD84D /* ARKExtensions-iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				6BD3A8B41E59A769001CD84D /* Nimble.framework */,
+				6BD3A8AB1E58F1B5001CD84D /* ConstraintsTests.swift */,
+				6BD3A8AD1E58F1B5001CD84D /* Info.plist */,
+			);
+			path = "ARKExtensions-iOSTests";
+			sourceTree = "<group>";
+		};
 		6BDD3AE51DDCECC6002B47A7 = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +169,7 @@
 				6BDD3B021DDCEE5E002B47A7 /* ARKExtensions-iOS */,
 				6BDD3B1A1DDCF8CB002B47A7 /* ARKExtensions-macOS */,
 				6BF80E661DF3848C00F0635C /* ARKExtensions-macOSTests */,
+				6BD3A8AA1E58F1B5001CD84D /* ARKExtensions-iOSTests */,
 				6BDD3AF01DDCECC6002B47A7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -135,6 +180,7 @@
 				6BDD3B011DDCEE5E002B47A7 /* ARKExtensions.framework */,
 				6BDD3B191DDCF8CB002B47A7 /* ARKExtensions.framework */,
 				6BF80E651DF3848C00F0635C /* ARKExtensions-macOSTests.xctest */,
+				6BD3A8A91E58F1B5001CD84D /* ARKExtensions-iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,6 +257,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		6BD3A8A81E58F1B5001CD84D /* ARKExtensions-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6BD3A8B31E58F1B5001CD84D /* Build configuration list for PBXNativeTarget "ARKExtensions-iOSTests" */;
+			buildPhases = (
+				6BD3A8A51E58F1B5001CD84D /* Sources */,
+				6BD3A8A61E58F1B5001CD84D /* Frameworks */,
+				6BD3A8A71E58F1B5001CD84D /* Resources */,
+				6BD3A8B61E59AAC9001CD84D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6BD3A8B01E58F1B5001CD84D /* PBXTargetDependency */,
+			);
+			name = "ARKExtensions-iOSTests";
+			productName = "ARKExtensions-iOSTests";
+			productReference = 6BD3A8A91E58F1B5001CD84D /* ARKExtensions-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		6BDD3B001DDCEE5E002B47A7 /* ARKExtensions-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6BDD3B061DDCEE5E002B47A7 /* Build configuration list for PBXNativeTarget "ARKExtensions-iOS" */;
@@ -272,10 +337,14 @@
 		6BDD3AE61DDCECC6002B47A7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = arkdan;
 				TargetAttributes = {
+					6BD3A8A81E58F1B5001CD84D = {
+						CreatedOnToolsVersion = 8.2;
+						ProvisioningStyle = Automatic;
+					};
 					6BDD3B001DDCEE5E002B47A7 = {
 						CreatedOnToolsVersion = 8.0;
 						LastSwiftMigration = 0800;
@@ -306,11 +375,19 @@
 				6BDD3B001DDCEE5E002B47A7 /* ARKExtensions-iOS */,
 				6BDD3B181DDCF8CB002B47A7 /* ARKExtensions-macOS */,
 				6BF80E641DF3848C00F0635C /* ARKExtensions-macOSTests */,
+				6BD3A8A81E58F1B5001CD84D /* ARKExtensions-iOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6BD3A8A71E58F1B5001CD84D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6BDD3AFF1DDCEE5E002B47A7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -335,6 +412,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6BD3A8A51E58F1B5001CD84D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BD3A8AC1E58F1B5001CD84D /* ConstraintsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6BDD3AFC1DDCEE5E002B47A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -377,6 +462,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6BD3A8B01E58F1B5001CD84D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6BDD3B001DDCEE5E002B47A7 /* ARKExtensions-iOS */;
+			targetProxy = 6BD3A8AF1E58F1B5001CD84D /* PBXContainerItemProxy */;
+		};
 		6BF80E6C1DF3848C00F0635C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6BDD3B181DDCF8CB002B47A7 /* ARKExtensions-macOS */;
@@ -385,6 +475,45 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		6BD3A8B11E58F1B5001CD84D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ARKExtensions-iOSTests",
+				);
+				INFOPLIST_FILE = "ARKExtensions-iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arkdan.ARKExtensions-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6BD3A8B21E58F1B5001CD84D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ARKExtensions-iOSTests",
+				);
+				INFOPLIST_FILE = "ARKExtensions-iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arkdan.ARKExtensions-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		6BDD3AF51DDCECC6002B47A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -604,6 +733,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6BD3A8B31E58F1B5001CD84D /* Build configuration list for PBXNativeTarget "ARKExtensions-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BD3A8B11E58F1B5001CD84D /* Debug */,
+				6BD3A8B21E58F1B5001CD84D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		6BDD3AE91DDCECC6002B47A7 /* Build configuration list for PBXProject "ARKExtensions" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

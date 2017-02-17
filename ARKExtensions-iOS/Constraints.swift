@@ -8,10 +8,26 @@
 
 import UIKit
 
+public protocol CGFloatConvertible {
+    var cgFloat: CGFloat { get }
+}
+
+extension Double: CGFloatConvertible {
+    public var cgFloat: CGFloat { return CGFloat(self) }
+}
+extension Int: CGFloatConvertible {
+    public var cgFloat: CGFloat { return CGFloat(self) }
+}
+extension CGFloat: CGFloatConvertible {
+    public var cgFloat: CGFloat { return self }
+}
+
+
 extension UIView {
 
     @discardableResult
     public func constraint(_ attributes: NSLayoutAttribute..., subview: UIView, _ constant: CGFloat = 0) -> [NSLayoutConstraint] {
+
         assert(subview.superview === self)
         subview.translatesAutoresizingMaskIntoConstraints = false
 
@@ -44,6 +60,7 @@ extension UIView {
     @discardableResult
     public func constraint(_ attribute: NSLayoutAttribute, _ constant: CGFloat) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
+
         switch attribute {
         case .width, .height:
             break
@@ -61,13 +78,12 @@ extension UIView {
         return c
     }
 
-    public typealias ViewAttribute = (view: UIView, attribute: NSLayoutAttribute)
-
     @discardableResult
-    public func constraint(_ attribute: NSLayoutAttribute, to sibbling: ViewAttribute, constant: CGFloat = 0) -> NSLayoutConstraint {
-        assert(superview === sibbling.view.superview)
+    public func constraint(_ attribute: NSLayoutAttribute, to siblingAttribute: NSLayoutAttribute, ofSibling sibling: UIView, constant: CGFloat = 0) -> NSLayoutConstraint {
+
+        assert(superview === sibling.superview, "siblings must have same superview!")
         translatesAutoresizingMaskIntoConstraints = false
-        sibbling.view.translatesAutoresizingMaskIntoConstraints = false
+        sibling.translatesAutoresizingMaskIntoConstraints = false
 
         let off: CGFloat
         switch attribute {
@@ -80,14 +96,27 @@ extension UIView {
         let c = NSLayoutConstraint(item: self,
                                    attribute: attribute,
                                    relatedBy: .equal,
-                                   toItem: sibbling.view,
-                                   attribute: sibbling.attribute,
+                                   toItem: sibling,
+                                   attribute: siblingAttribute,
                                    multiplier: 1,
                                    constant: off)
         c.isActive = true
         return c
     }
 }
+
+extension UIView {
+    @discardableResult
+    public func constraint(size: (CGFloatConvertible, CGFloatConvertible)) -> [NSLayoutConstraint] {
+        return constraint(size: CGSize(width: size.0.cgFloat, height: size.1.cgFloat))
+    }
+
+    @discardableResult
+    public func constraint(size: CGSize) -> [NSLayoutConstraint] {
+        return [constraint(.width, size.width), constraint(.height, size.height)]
+    }
+}
+
 
 extension UIView {
     public func clearConstraints() {
