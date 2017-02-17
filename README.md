@@ -1,12 +1,22 @@
-# ARKExtensions
+## Just tools
+[DispatchTimer](https://github.com/arkdan/ARKExtensions#DispatchTimer)
 
+[Dispatch delay](https://github.com/arkdan/ARKExtensions#delay)
 
-### Carthage
+[substring(Int)](https://github.com/arkdan/ARKExtensions#Strings)
+
+[Double round](https://github.com/arkdan/ARKExtensions#delay)
+
+[Collection[safe: Index]](https://github.com/arkdan/ARKExtensions#delay)
+
+### Installation
+Please use carthage:
 ```
 github "arkdan/ARKExtensions"
 ```
+No, seriously, use carthage, please. No pods.
 
-## DispatchTimer
+### DispatchTimer
 
 Executes a closure on specified dispatch queue, with specified time intervals, for specified number of times (optionally).
 You can change the closure at any time.
@@ -33,11 +43,17 @@ Executes a closure asynchronously after `delay` seconds. Optionally pass the que
 
 ```swift
 delay(2) {
-    // executed after 2 sec
+    // executed after 2 sec, on main
 }
 
 delay(2, queue: queue) {
     // executed after 2 sec on `queue`
+}
+```
+Alternatively,
+```swift
+DispatchQueue.main.delayed(2) { 
+    // execute after 2 sec
 }
 ```
 
