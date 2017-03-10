@@ -15,11 +15,11 @@ open class OOperation: Operation {
     fileprivate var privateCompletionBlock: ((OOperation) -> Void)?
 
     /// provide either 'execution' block, or override func execute(). The block takes priority.
-    open var executionBlock: Execution?
+    open var execution: Execution?
 
     public init(block: @escaping Execution) {
         super.init()
-        executionBlock = block
+        execution = block
     }
 
     public override init() {
@@ -63,7 +63,7 @@ open class OOperation: Operation {
         }
 
         _executing = true
-        if let execution = self.executionBlock {
+        if let execution = self.execution {
             execution(finish)
         } else {
             execute()
@@ -71,7 +71,7 @@ open class OOperation: Operation {
     }
 
     open func execute() {
-        fatalError("Must override")
+        fatalError("Must override execute() or provide 'execution' block")
     }
 
     open func finish() {
@@ -84,7 +84,21 @@ open class OOperation: Operation {
 
 open class OOperationQueue: OperationQueue {
 
+    override init() {
+        super.init()
+        addObserver(self, forKeyPath: #keyPath(operationCount), options: .new, context: nil)
+    }
+
     open var completionBlock: (() -> Void)?
+
+    // i need a hack here,
+    // due to asyncronous nature of operations, i need to know whether i notified interested party about
+    // completion.
+    private var notifiedHack = false
+
+    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        print("queue count \(operationCount)")
+    }
 
     override open func addOperation(_ operation: Operation) {
         guard let op = operation as? OOperation else {
@@ -92,11 +106,12 @@ open class OOperationQueue: OperationQueue {
         }
 
         super.addOperation(op)
+        notifiedHack = false
 
         op.privateCompletionBlock = { operation in
-            if self.operationCount == 0 {
+            if self.operationCount == 0 && !self.notifiedHack {
+                self.notifiedHack = true
                 self.completionBlock?()
-                self.completionBlock = nil
             }
         }
     }
