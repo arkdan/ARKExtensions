@@ -110,6 +110,7 @@ extension Double {
     }
 }
 
-public func address(of object: AnyObject) -> Int {
-    return unsafeBitCast(object, to: Int.self)
+/// I mostly use iside print(), so returning String instead of Int
+public func address(of object: AnyObject) -> String {
+    return "0x" + String(unsafeBitCast(object, to: Int.self), radix: 16)
 }

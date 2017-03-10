@@ -40,8 +40,7 @@ class ExtensionsTests: XCTestCase {
     func testObjectAddress() {
         let object = NSObject()
         let addressString = NSString(format: "%p", object) as String
-        let iii = address(of: object)
-        let sss = "0x" + String(iii, radix: 16)
+        let sss = address(of: object)
         expect(sss) == addressString
     }
 
