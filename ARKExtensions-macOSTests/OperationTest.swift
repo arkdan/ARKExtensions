@@ -10,40 +10,55 @@ import XCTest
 import Nimble
 @testable import ARKExtensions
 
-class DelayOperation: OOperation {
+func currentQueueName() -> String? {
+    let name = __dispatch_queue_get_label(nil)
+    return String(cString: name, encoding: .utf8)
+}
+
+class ExecOperation: OOperation {
 
     private(set) var executed = false
-    let delay: Double
 
-    init(delay: Double) {
-        self.delay = delay
+    private(set) var delay = 0.05
+
+    init(name: String? = nil, delay: Double? = nil) {
         super.init()
-    }
-
-    override func execute() {
-        ARKExtensions.delay(delay) {
-            self.executed = true
-            self.finish()
+        self.name = name
+        if let delay = delay {
+            self.delay = delay
+        }
+        self.execution = { finished in
+            ARKExtensions.delay(self.delay) {
+                self.executed = true
+                finished()
+            }
         }
     }
 }
 
-class OperationTest: XCTestCase {
 
-    var operationQueue = OOperationQueue()
+class OperationTest: XCTestCase {
 
     override func setUp() {
         super.setUp()
     }
 
     func testCompletion() {
+
+        let operationQueue = OOperationQueue()
+
         let op1Exp = expectation(description: #function + "op1")
         let op2Exp = expectation(description: #function + "op2")
         let queueExp = expectation(description: #function + "queue")
 
-        let op1 = DelayOperation(delay: 0.5)
-        let op2 = DelayOperation(delay: 0.5)
+        let op1 = ExecOperation(name: "op1")
+        let op2 = ExecOperation(name: "op2")
+        op1.isAsync = false
+        op2.isAsync = false
         op2.addDependency(op1)
+
+        expect(op2.executed) == false
+        expect(op1.executed) == false
 
         op1.completionBlock = { [weak op1, weak op2] in
             expect(op2?.executed) == false
@@ -55,60 +70,25 @@ class OperationTest: XCTestCase {
             expect(op2?.executed) == true
             op2Exp.fulfill()
         }
-        operationQueue.completionBlock = {
+        operationQueue.whenEmpty = {
             expect(op1.executed) == true
             expect(op2.executed) == true
             queueExp.fulfill()
         }
 
-        operationQueue.maxConcurrentOperationCount = OperationQueue.defaultMaxConcurrentOperationCount
+        operationQueue.maxConcurrentOperationCount = 1
+
         operationQueue.isSuspended = true
         operationQueue.addOperation(op2)
         operationQueue.addOperation(op1)
         operationQueue.isSuspended = false
 
-        waitForExpectations(timeout: 1.1, handler: nil)
-    }
-
-    func testObjectLifeBlockInit() {
-        let op1Exp = expectation(description: #function + "op1")
-        let op2Exp = expectation(description: #function + "op2")
-        let queueExp = expectation(description: #function + "queue")
-
-        var op1: OOperation? = OOperation { finised in
-            finised()
-        }
-        var op2: OOperation? = OOperation { finised in
-            finised()
-        }
-        op1!.completionBlock = {
-            print("op1 completion")
-            op1Exp.fulfill()
-        }
-        op2!.completionBlock = {
-            print("op2 completion")
-            op2Exp.fulfill()
-        }
-
-        operationQueue.completionBlock = {
-            print("queue completoin")
-            expect(op1).to(beNil())
-            expect(op2).to(beNil())
-            queueExp.fulfill()
-        }
-
-        operationQueue.isSuspended = true
-        operationQueue.addOperation(op2!)
-        operationQueue.addOperation(op1!)
-        operationQueue.isSuspended = false
-
-        op1 = nil
-        op2 = nil
-
-        waitForExpectations(timeout: 0.1, handler: nil)
+        waitForExpectations(timeout: 0.11, handler: nil)
     }
 
     func testObjectLife() {
+        let operationQueue = OOperationQueue()
+
         let op1Exp = expectation(description: #function + "op1")
         let op2Exp = expectation(description: #function + "op2")
         let queueExp = expectation(description: #function + "queue")
@@ -129,7 +109,7 @@ class OperationTest: XCTestCase {
             op2Exp.fulfill()
         }
 
-        operationQueue.completionBlock = {
+        operationQueue.whenEmpty = {
             expect(op1).to(beNil())
             expect(op2).to(beNil())
             queueExp.fulfill()
@@ -146,45 +126,48 @@ class OperationTest: XCTestCase {
         waitForExpectations(timeout: 0.1, handler: nil)
     }
 
-    func testCancel() {
+    func testObjectLifeBlockInit() {
+        let operationQueue = OOperationQueue()
+
         let op1Exp = expectation(description: #function + "op1")
+        let op2Exp = expectation(description: #function + "op2")
         let queueExp = expectation(description: #function + "queue")
 
-        var op1Executted = false
-        var op2Executted = false
-
-        let op2 = OOperation { finised in
-            op2Executted = true
+        var op1: OOperation? = OOperation { finised in
             finised()
         }
-
-        let op1 = OOperation { finised in
-            op1Executted = true
-            op2.cancel()
+        var op2: OOperation? = OOperation { finised in
             finised()
         }
-
-        op2.addDependency(op1)
-
-        op1.completionBlock = {
+        op1!.completionBlock = {
             op1Exp.fulfill()
         }
-        op2.completionBlock = {
+        op2!.completionBlock = {
+            op2Exp.fulfill()
         }
 
-        operationQueue.completionBlock = {
-            expect(op1Executted) == true
-            expect(op2Executted) == false
+        operationQueue.whenEmpty = {
+            expect(op1).to(beNil())
+            expect(op2).to(beNil())
             queueExp.fulfill()
         }
 
-        operationQueue.maxConcurrentOperationCount = 1
-
         operationQueue.isSuspended = true
-        operationQueue.addOperation(op2)
-        operationQueue.addOperation(op1)
+        operationQueue.addOperation(op2!)
+        operationQueue.addOperation(op1!)
         operationQueue.isSuspended = false
 
-        waitForExpectations(timeout: 0.1, handler: nil)
+        op1 = nil
+        op2 = nil
+
+        waitForExpectations(timeout: 0.5, handler: nil)
     }
+
+    func testManyTimes() {
+        measure {
+            self.testObjectLife()
+            self.testObjectLifeBlockInit()
+        }
+    }
+
 }

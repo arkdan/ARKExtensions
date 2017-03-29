@@ -2,7 +2,7 @@
 //  ConstraintsTests.swift
 //  ConstraintsTests
 //
-//  Created by Daniyelian, Arkadzi on 2/18/17.
+//  Created by ark dan on 2/18/17.
 //  Copyright © 2017 arkdan. All rights reserved.
 //
 

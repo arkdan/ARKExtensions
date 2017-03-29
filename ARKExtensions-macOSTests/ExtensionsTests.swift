@@ -45,3 +45,62 @@ class ExtensionsTests: XCTestCase {
     }
 
 }
+
+class NSMutableArrayPerformance: XCTestCase {
+    var array = NSMutableArray()
+
+    override func setUp() {
+        super.setUp()
+        for i in 0..<10_000_000 {
+            array.add(NSNumber(value: i))
+        }
+    }
+
+    func testMiddle() {
+        measure {
+            self.array.removeObject(at: 500_000)
+        }
+    }
+
+    func testTop() {
+        measure {
+            self.array.removeObject(at: 999_000)
+        }
+    }
+
+    func testBottom() {
+        measure {
+            self.array.removeObject(at: 1)
+        }
+    }
+}
+
+class SwiftArrayPerformance: XCTestCase {
+    var array = [NSNumber]()
+
+    override func setUp() {
+        super.setUp()
+        for i in 0..<10_000_000 {
+            array.append(NSNumber(value: i))
+        }
+    }
+
+    func testMiddle() {
+        measure {
+            self.array.remove(at: 500_000)
+        }
+    }
+
+    func testTop() {
+        measure {
+            self.array.remove(at: 999_000)
+        }
+    }
+
+    func testBottom() {
+        measure {
+            self.array.remove(at: 1)
+        }
+    }
+}
+

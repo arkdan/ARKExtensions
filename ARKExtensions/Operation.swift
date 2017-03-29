@@ -17,6 +17,8 @@ open class OOperation: Operation {
     /// provide either 'execution' block, or override func execute(). The block takes priority.
     open var execution: Execution?
 
+    open var isAsync = true
+
     public init(block: @escaping Execution) {
         super.init()
         execution = block
@@ -27,7 +29,7 @@ open class OOperation: Operation {
     }
 
     override open var isAsynchronous: Bool {
-        return true
+        return isAsync
     }
 
     private var _executing = false {
@@ -79,42 +81,61 @@ open class OOperation: Operation {
         _finished = true
         privateCompletionBlock?(self)
     }
-    
+
 }
 
 open class OOperationQueue: OperationQueue {
 
+    // need a alternative operations count, because Operation.operationCount is sometimes carries
+    // irrelevant values due to concurrent nature of the queue.
+    private var ccount = 0
+
+    open var whenEmpty: (() -> Void)?
+
+    /*
     override init() {
         super.init()
-        addObserver(self, forKeyPath: #keyPath(operationCount), options: .new, context: nil)
+        addObserver(self, forKeyPath: #keyPath(operations), options: [.new, .old], context: nil)
     }
-
-    open var completionBlock: (() -> Void)?
-
-    // i need a hack here,
-    // due to asyncronous nature of operations, i need to know whether i notified interested party about
-    // completion.
-    private var notifiedHack = false
 
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        print("queue count \(operationCount)")
+
+        guard let kkeyPath = keyPath, kkeyPath == #keyPath(operations) else {
+            return
+        }
+        let old = change![.oldKey] as! [Operation]
+        let new = change![.newKey] as! [Operation]
+        print("queue count \(operationCount) \(old.count)->\(new.count)")
+
+        if let kkeyPath = keyPath, kkeyPath == #keyPath(operations),
+            let cchange = change,
+            let old = cchange[.oldKey] as? [Operation], let new = cchange[.newKey] as? [Operation],
+            new.count == 0, old.count == 1 {
+            self.whenEmpty?()
+            print("trigger")
+        }
     }
+    */
 
     override open func addOperation(_ operation: Operation) {
         guard let op = operation as? OOperation else {
             fatalError("This class only works with OOperation objects")
         }
 
-        super.addOperation(op)
-        notifiedHack = false
+        ccount += 1
 
-        op.privateCompletionBlock = { operation in
-            if self.operationCount == 0 && !self.notifiedHack {
-                self.notifiedHack = true
-                self.completionBlock?()
+        super.addOperation(op)
+
+        op.privateCompletionBlock = { [weak self] operation in
+            guard let sself = self else {
+                return
+            }
+            sself.ccount -= 1
+            if sself.ccount == 0 {
+                sself.whenEmpty?()
             }
         }
     }
-    
+
 }
 
