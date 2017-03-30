@@ -1,4 +1,4 @@
-## Just tools
+## Tools
 [DispatchTimer](https://github.com/arkdan/ARKExtensions#dispatchtimer)
 
 [Dispatch delay](https://github.com/arkdan/ARKExtensions#delay)
@@ -42,19 +42,13 @@ let timer100 = DispatchTimer(timeInterval: 0.1, queue: queue, maxCount: 100) { t
 Executes a closure asynchronously after `delay` seconds. Optionally pass the queue to execute on. Default `.main`
 
 ```swift
-delay(2) {
-    // executed after 2 sec, on main
-}
+delay(2) { // executed after 2 sec, on main }
 
-delay(2, queue: queue) {
-    // executed after 2 sec on `queue`
-}
+delay(2, queue: queue) { // executed after 2 sec on `queue` }
 ```
 Alternatively,
 ```swift
-DispatchQueue.main.delayed(2) { 
-    // execute after 2 sec
-}
+DispatchQueue.main.delayed(2) { // execute after 2 sec }
 ```
 
 ### Strings
