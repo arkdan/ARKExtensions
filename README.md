@@ -77,13 +77,6 @@ guard let element = array[safe: 100500] else { return }
 
 Handy asynchronous Operation (*NSOperation*) with completion reporting.
 
-
-Operation (*NSOperation*) is pretty powerful but may be hard to use - many people don't like to subclass to perform a (single?) task. As for BlockOperation - i personally never got around how to use it properly, and get proper reporting when done.
-
-When several ops are in a operationQueue, more than often we want a report when all done.
-
-Let add some sugar.
-
 • No need to fiddle with *will set did set executing finished*... i never get it right because i'm stupid.
 
 • No need to subclass, you can pass blocks like so:
@@ -116,6 +109,7 @@ class DelayOperation: OOperation {
 ```
 
 ### OOperationQueue
+
 `whenEmpty: () -> Void` called each time all operations are completed. Also, you can add blocks to the queue as a convenience - similar to `addOperation(_ block: @escaping () -> Void)`:
 
 ```swift
