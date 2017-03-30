@@ -8,16 +8,16 @@
 
 import Foundation
 
-public typealias Execution = (_ finished: @escaping () -> Void) -> Void
 
+/// OOperations are asynchronous.
 open class OOperation: Operation {
+
+    public typealias Execution = (_ finished: @escaping () -> Void) -> Void
 
     fileprivate var privateCompletionBlock: ((OOperation) -> Void)?
 
     /// provide either 'execution' block, or override func execute(). The block takes priority.
     open var execution: Execution?
-
-    open var isAsync = true
 
     public init(block: @escaping Execution) {
         super.init()
@@ -28,8 +28,9 @@ open class OOperation: Operation {
         super.init()
     }
 
-    override open var isAsynchronous: Bool {
-        return isAsync
+    /// always true. These thigs are asynchronous.
+    override public final var isAsynchronous: Bool {
+        return true
     }
 
     private var _executing = false {
@@ -41,7 +42,7 @@ open class OOperation: Operation {
         }
     }
 
-    override open var isExecuting: Bool {
+    override public final var isExecuting: Bool {
         return _executing
     }
 
@@ -54,11 +55,11 @@ open class OOperation: Operation {
         }
     }
 
-    override open var isFinished: Bool {
+    override public final var isFinished: Bool {
         return _finished
     }
 
-    override open func start() {
+    override public final func start() {
         if isCancelled {
             finish()
             return
@@ -76,7 +77,7 @@ open class OOperation: Operation {
         fatalError("Must override execute() or provide 'execution' block")
     }
 
-    open func finish() {
+    public final func finish() {
         _executing = false
         _finished = true
         privateCompletionBlock?(self)
@@ -90,7 +91,9 @@ open class OOperationQueue: OperationQueue {
     // irrelevant values due to concurrent nature of the queue.
     private var ccount = 0
 
-    open var whenEmpty: (() -> Void)?
+
+    /// called each time all operations are completed.
+    public var whenEmpty: (() -> Void)?
 
     /*
     override init() {
@@ -117,6 +120,8 @@ open class OOperationQueue: OperationQueue {
     }
     */
 
+
+    /// Supports OOperations only
     override open func addOperation(_ operation: Operation) {
         guard let op = operation as? OOperation else {
             fatalError("This class only works with OOperation objects")
@@ -137,5 +142,21 @@ open class OOperationQueue: OperationQueue {
         }
     }
 
+    public func addExecution(_ execution: @escaping OOperation.Execution) {
+        addOperation(OOperation(block: execution))
+    }
+
+
+    /// Not supported.
+    ///
+    /// Use addExecution instead. I can't report progress on block operation, which is the main goal of this class
+    override open func addOperation(_ block: @escaping () -> Void) {
+        fatalError("")
+    }
+
+    /// Not supported. OOperationQueue is there to report progress on async execution
+    override open func addOperations(_ ops: [Operation], waitUntilFinished wait: Bool) {
+        fatalError("Not supported. OOperationQueue is there to report progress on async execution")
+    }
 }
 

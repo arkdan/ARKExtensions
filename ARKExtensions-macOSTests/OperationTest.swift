@@ -53,8 +53,6 @@ class OperationTest: XCTestCase {
 
         let op1 = ExecOperation(name: "op1")
         let op2 = ExecOperation(name: "op2")
-        op1.isAsync = false
-        op2.isAsync = false
         op2.addDependency(op1)
 
         expect(op2.executed) == false

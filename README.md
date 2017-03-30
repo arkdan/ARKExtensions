@@ -1,5 +1,5 @@
 ## Tools
-[DispatchTimer](https://github.com/arkdan/ARKExtensions#dispatchtimer) | [Dispatch delay](https://github.com/arkdan/ARKExtensions#delay) | [substring(Int)](https://github.com/arkdan/ARKExtensions#strings) | [Double round](https://github.com/arkdan/ARKExtensions#double) | [safe collection subscript](https://github.com/arkdan/ARKExtensions#collection)
+[DispatchTimer](https://github.com/arkdan/ARKExtensions#dispatchtimer) | [Dispatch delay](https://github.com/arkdan/ARKExtensions#delay) | [substring(Int)](https://github.com/arkdan/ARKExtensions#strings) | [Double round](https://github.com/arkdan/ARKExtensions#double) | [safe collection subscript](https://github.com/arkdan/ARKExtensions#collection) | [Operation](https://github.com/arkdan/ARKExtensions#ooperation) | [OperationQueue](https://github.com/arkdan/ARKExtensions#ooperationqueue)
 
 ### Installation
 Please use carthage:
@@ -71,4 +71,78 @@ safe subscript - nil if out of bounds
 ```swift
 guard let element = array[safe: 100500] else { return }
 // do stuff with element
+```
+
+### OOperation
+
+Handy asynchronous Operation (*NSOperation*) with completion reporting.
+
+
+Operation (*NSOperation*) is pretty powerful but may be hard to use - many people don't like to subclass to perform a (single?) task. As for BlockOperation - i personally never got around how to use it properly, and get proper reporting when done.
+
+When several ops are in a operationQueue, more than often we want a report when all done.
+
+Let add some sugar.
+
+• No need to fiddle with *will set did set executing finished*... i never get it right because i'm stupid.
+
+• No need to subclass, you can pass blocks like so:
+
+```swift
+let op = OOperation { finished in
+    // do work; call finished() when done
+    delay(2) { finished() }
+}
+```
+
+• I dont mind subclassing though; helps me stay focused and keeps logic separated. Instead of overriding traditional `start` and playing with *executing finished* - override `execute`, call `finish()` when you're done.
+
+```swift
+class DelayOperation: OOperation {
+    let delay: Double
+
+    init(delay: Double) {
+        self.delay = delay
+        super.init()
+    }
+
+    override func execute() {
+        // do work, then call finish()
+        DispatchQueue.main.delayed(self.delay) {
+            self.finish()
+        }
+    }
+}
+```
+
+### OOperationQueue
+`whenEmpty: () -> Void` called each time all operations are completed. Also, you can add blocks to the queue as a convenience - similar to `addOperation(_ block: @escaping () -> Void)`:
+
+```swift
+queue.addExecution { finished in
+    delay(0.5) { finished() }
+}
+```
+
+Example:
+
+```swift
+let op = OOperation { finished in
+    delay(2) { finished() }
+}
+
+let delayOp = DelayOperation(delay: 3)
+op.addDependency(delayOp)
+
+let queue = OOperationQueue()
+queue.addOperation(op)
+queue.addOperation(delayOp)
+
+queue.addExecution { finished in
+    delay(0.5) { finished() }
+}
+
+queue.whenEmpty = {
+    print("all operations finished")
+}
 ```
