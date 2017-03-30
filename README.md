@@ -37,10 +37,9 @@ Executes a closure asynchronously after `delay` seconds. Optionally pass the que
 delay(2) { // executed after 2 sec, on main }
 
 delay(2, queue: queue) { // executed after 2 sec on `queue` }
-```
-Alternatively,
-```swift
-DispatchQueue.main.delayed(2) { // execute after 2 sec }
+
+// Alternatively,
+queue.delayed(2) { // execute after 2 sec }
 ```
 
 ### Strings
