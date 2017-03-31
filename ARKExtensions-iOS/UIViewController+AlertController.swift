@@ -18,14 +18,21 @@ private let alertQueue: OperationQueue = {
 
 extension UIViewController {
 
+    /// Presented form window's rootViewController.
+    /// Does nothing if no rootViewController
     public class func presentAlert(title: String?, message: String?, cancelButtonTitle: String, otherButtonTitles:[String]? = nil, handler:((Int) -> ())? = nil) {
-        if let window = UIApplication.shared.delegate?.window,
-            let rootVC = window!.rootViewController {
+        if let rootVC = UIApplication.shared.delegate?.window??.rootViewController {
             rootVC.presentAlert(title: title, message: message, cancelButtonTitle: cancelButtonTitle,
-                    otherButtonTitles: otherButtonTitles, handler: handler)
+                                otherButtonTitles: otherButtonTitles, handler: handler)
         }
     }
 
+
+    /// Presents UIAlertController form the receiver, with supplied parameters (message, cancel title, ...)
+    ///
+    /// - Parameters:
+    ///   - handler: callback when user taps either button (including Cancel).
+    /// buttonIndex == 0 corresponds to Cancel; buttonIndex == 1 - first button from otherButtonTitles
     public func presentAlert(title: String?, message: String?, cancelButtonTitle: String, otherButtonTitles: [String]?, handler: ((Int) -> ())?) {
 
         let op = OOperation { finished in

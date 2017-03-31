@@ -1,5 +1,5 @@
 ## Tools
-[DispatchTimer](https://github.com/arkdan/ARKExtensions#dispatchtimer) | [Dispatch delay](https://github.com/arkdan/ARKExtensions#delay) | [substring(Int)](https://github.com/arkdan/ARKExtensions#strings) | [Double round](https://github.com/arkdan/ARKExtensions#double) | [safe collection subscript](https://github.com/arkdan/ARKExtensions#collection) | [Operation](https://github.com/arkdan/ARKExtensions#ooperation) | [OperationQueue](https://github.com/arkdan/ARKExtensions#ooperationqueue)
+[DispatchTimer](https://github.com/arkdan/ARKExtensions#dispatchtimer) | [Dispatch delay](https://github.com/arkdan/ARKExtensions#delay) | [substring(Int)](https://github.com/arkdan/ARKExtensions#strings) | [Double round](https://github.com/arkdan/ARKExtensions#double) | [safe collection subscript](https://github.com/arkdan/ARKExtensions#collection) | [Operation](https://github.com/arkdan/ARKExtensions#ooperation) | [OperationQueue](https://github.com/arkdan/ARKExtensions#ooperationqueue) | [AlertController](https://github.com/arkdan/ARKExtensions#alertcontroller)
 
 ### Installation
 Please use carthage:
@@ -139,4 +139,34 @@ queue.addExecution { finished in
 queue.whenEmpty = {
     print("all operations finished")
 }
+```
+
+### AlertController
+`UIViewController` extension, with clean and simple syntax for presenting alerts (UIAlertControllers). Callback when user taps either button, with `buttonIndex` as the parameter.
+
+**The alerts queue up, fifo**. I.e. latter alers wait and don't show until user respond to former alerts.
+
+```swift
+UIViewController.presentAlert(title: "Title",
+                              message: "message",
+                              cancelButtonTitle: "Cancel",
+                              otherButtonTitles: ["button1", "button2"]) { (buttonIndex) in
+    // called when user taps either button
+    switch buttonIndex {
+    case 0:
+        print("tapped Cancel")
+    case 1:
+        print("button 1 tapped")
+    case 2:
+        print("button 2")
+    default:
+        break
+    }
+}
+```
+
+For simple 1-button alerts,
+
+```swift
+UIViewController.presentAlert(title: "Title", message: "message", cancelButtonTitle: "OK")
 ```
