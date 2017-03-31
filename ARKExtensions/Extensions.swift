@@ -114,3 +114,12 @@ extension Double {
 public func address(of object: AnyObject) -> String {
     return "0x" + String(unsafeBitCast(object, to: Int.self), radix: 16)
 }
+
+extension Collection where IndexDistance == Int, Index == Int {
+
+    /// Exception if array is empty
+    public func randomItem() -> Iterator.Element {
+        let index = Int(arc4random_uniform(UInt32(count)))
+        return self[index]
+    }
+}
