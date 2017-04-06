@@ -115,11 +115,14 @@ public func address(of object: AnyObject) -> String {
     return "0x" + String(unsafeBitCast(object, to: Int.self), radix: 16)
 }
 
-extension Collection where IndexDistance == Int, Index == Int {
+extension Collection where Index == Int {
+    public func anyItem() -> Iterator.Element? {
+        return isEmpty ? nil : self[Int(arc4random_uniform(UInt32(endIndex)))]
+    }
 
-    /// Exception if array is empty
-    public func randomItem() -> Iterator.Element {
-        let index = Int(arc4random_uniform(UInt32(count)))
-        return self[index]
+    /// exception if collection empty. Use anyItem() to be safe.
+    public func any() -> Iterator.Element {
+        return self[Int(arc4random_uniform(UInt32(endIndex)))]
     }
 }
+

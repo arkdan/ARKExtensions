@@ -33,6 +33,8 @@
 		6BDD3B211DDCF951002B47A7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3AFA1DDCEDE7002B47A7 /* Extensions.swift */; };
 		6BDD3B221DDCF957002B47A7 /* NSTimer+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BDD3B0E1DDCF15D002B47A7 /* NSTimer+Blocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6BDD3B231DDCF95E002B47A7 /* NSTimer+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3B0F1DDCF15D002B47A7 /* NSTimer+Blocks.m */; };
+		6BEAA7451E94D6C900785429 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEAA7441E94D6C900785429 /* UIColor.swift */; };
+		6BEAA7481E94DB4200785429 /* UIColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEAA7461E94DB0B00785429 /* UIColorTests.swift */; };
 		6BF80E511DF382BC00F0635C /* Enumerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF80E501DF382BC00F0635C /* Enumerable.swift */; };
 		6BF80E681DF3848C00F0635C /* EnumerableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF80E671DF3848C00F0635C /* EnumerableTests.swift */; };
 		6BF80E6A1DF3848C00F0635C /* ARKExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BDD3B191DDCF8CB002B47A7 /* ARKExtensions.framework */; };
@@ -104,6 +106,8 @@
 		6BDD3B191DDCF8CB002B47A7 /* ARKExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ARKExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BDD3B1B1DDCF8CB002B47A7 /* ARKExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARKExtensions.h; sourceTree = "<group>"; };
 		6BDD3B1C1DDCF8CB002B47A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6BEAA7441E94D6C900785429 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		6BEAA7461E94DB0B00785429 /* UIColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorTests.swift; path = "../ARKExtensions-macOSTests/UIColorTests.swift"; sourceTree = "<group>"; };
 		6BF80E501DF382BC00F0635C /* Enumerable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerable.swift; sourceTree = "<group>"; };
 		6BF80E651DF3848C00F0635C /* ARKExtensions-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ARKExtensions-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BF80E671DF3848C00F0635C /* EnumerableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumerableTests.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 		6BD3A8AA1E58F1B5001CD84D /* ARKExtensions-iOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				6BEAA7461E94DB0B00785429 /* UIColorTests.swift */,
 				6BD3A8B41E59A769001CD84D /* Nimble.framework */,
 				6BD3A8AB1E58F1B5001CD84D /* ConstraintsTests.swift */,
 				6BD3A8AD1E58F1B5001CD84D /* Info.plist */,
@@ -208,6 +213,7 @@
 				6BDD3B091DDCEE78002B47A7 /* Constraints.swift */,
 				6BADB69D1E1C1B2500251374 /* UIViewController+AlertController.swift */,
 				6BDD3B0B1DDCEEFC002B47A7 /* Misc.swift */,
+				6BEAA7441E94D6C900785429 /* UIColor.swift */,
 			);
 			path = "ARKExtensions-iOS";
 			sourceTree = "<group>";
@@ -420,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BD3A8AC1E58F1B5001CD84D /* ConstraintsTests.swift in Sources */,
+				6BEAA7481E94DB4200785429 /* UIColorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +442,7 @@
 				6BDD3B121DDCF167002B47A7 /* NSTimer+Blocks.m in Sources */,
 				6BDD3B0C1DDCEEFC002B47A7 /* Misc.swift in Sources */,
 				6BF80E511DF382BC00F0635C /* Enumerable.swift in Sources */,
+				6BEAA7451E94D6C900785429 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
