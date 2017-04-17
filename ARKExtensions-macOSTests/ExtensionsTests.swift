@@ -46,10 +46,12 @@ class ExtensionsTests: XCTestCase {
 
     func testCollectionAny() {
         var collection = [1, 2, 3, 4, 5, 6, 7]
-        collection = []
         let some = collection.any()
-
         expect(collection.contains(some)) == true
+
+        collection = []
+        let other = collection.anyItem()
+        expect(other).to(beNil())
     }
 
 }
