@@ -1,5 +1,5 @@
 ## Tools
-[DispatchTimer](https://github.com/arkdan/ARKExtensions#dispatchtimer) | [Dispatch delay](https://github.com/arkdan/ARKExtensions#delay) | [substring(Int)](https://github.com/arkdan/ARKExtensions#strings) | [Double round](https://github.com/arkdan/ARKExtensions#double) | [safe collection subscript](https://github.com/arkdan/ARKExtensions#collection) | [Operation](https://github.com/arkdan/ARKExtensions#ooperation) | [OperationQueue](https://github.com/arkdan/ARKExtensions#ooperationqueue) | [AlertController](https://github.com/arkdan/ARKExtensions#alertcontroller)
+[**DispatchTimer**](https://github.com/arkdan/ARKExtensions#dispatchtimer) | [Dispatch delay](https://github.com/arkdan/ARKExtensions#delay) | [substring(Int)](https://github.com/arkdan/ARKExtensions#strings) | [Double round](https://github.com/arkdan/ARKExtensions#double) | [safe collection subscript](https://github.com/arkdan/ARKExtensions#collection) | [**Operation**](https://github.com/arkdan/ARKExtensions#ooperation) | [OperationQueue](https://github.com/arkdan/ARKExtensions#ooperationqueue) | [**AlertController**](https://github.com/arkdan/ARKExtensions#alertcontroller)
 
 ### Installation
 Please use carthage:
@@ -13,7 +13,7 @@ No, seriously, use carthage, please. No pods.
 Executes a closure on specified dispatch queue, with specified time intervals, for specified number of times (optionally).
 You can change the closure at any time.
 
-`timeInterval` may also be changed, although i dn't know how that can be useful.
+`timeInterval` may be changed (although i don't know how that can be useful)
 
 
 Built using `DispatchSourceTimer`'s `scheduleRepeating(...)`
@@ -170,3 +170,75 @@ For simple 1-button alerts,
 ```swift
 UIViewController.presentAlert(title: "Title", message: "message", cancelButtonTitle: "OK")
 ```
+
+
+### UIView constraints
+
+This one is pretty cool. What i have for you is a `UIView` extension, that leverages swift's powerful method overloading capabilities, to **easily define autolayout constraints in code.**
+
+• This syntax simplifies *most, but not all* autolayout boilerplate capabilities. That *most*, however, covers 100% of my needs so far:
+
+• size:
+
+```swift
+let view = UIView(frame: .zero)
+view.constraint(.width, 100)
+view.constraint(.height, 40)
+// or
+view.constraint(size: (100, 40))
+```
+
+• by center:
+
+```swift
+let superview: UIView
+superview.addSubview(view)
+
+superview.constraint(.centerX, .centerY, subview: view)
+
+// or offset 10 points to left:
+superview.constraint(.centerY, subview: view)
+superview.constraint(.centerX, subview: view, -10)
+```
+
+• by pinning edges:
+
+```swift
+// all 4, dead
+superview.constraint(.top, .bottom, .leading, .trailing, subview: view)
+
+// 4 edges, with 10 points offset each
+superview.constraint(.top, .bottom, .leading, .trailing, subview: view, 10)
+
+// top/bottom dead, leading & trailing offset:
+superview.constraint(.top, .bottom, subview: view)
+superview.constraint(.leading, .trailing, subview: view, 10)
+```
+
+• siblings:
+
+```swift
+let superview: UIView
+let subview1 = UIView(frame: .zero)
+let subview2 = UIView(frame: .zero)
+
+superview.addSubview(subview1)
+superview.addSubview(subview2)
+
+// view1 size
+subview1.constraint(.width, 100)
+subview1.constraint(.height, 100)
+// view one position in superview
+superview.constraint(.leading, .top, subview: subview1, 50)
+
+// view2 size
+subview2.constraint(size: (20, 20))
+
+// view2 top margin to view1 top
+subview2.constraint(.top, to: .top, ofSibling: subview1)
+// view2 leading 20 right from view1 trailing
+subview1.constraint(.trailing, to: .leading, ofSibling: subview2, constant: 20)
+```
+
+• combine as you want, as you would in IB. Autolayout rules do not change.
+
