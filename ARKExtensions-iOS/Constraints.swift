@@ -8,20 +8,6 @@
 
 import UIKit
 
-public protocol CGFloatConvertible {
-    var cgFloat: CGFloat { get }
-}
-
-extension Double: CGFloatConvertible {
-    public var cgFloat: CGFloat { return CGFloat(self) }
-}
-extension Int: CGFloatConvertible {
-    public var cgFloat: CGFloat { return CGFloat(self) }
-}
-extension CGFloat: CGFloatConvertible {
-    public var cgFloat: CGFloat { return self }
-}
-
 
 extension UIView {
 

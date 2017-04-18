@@ -19,6 +19,9 @@
 		6BADB6A11E1C1EAB00251374 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BADB69F1E1C1EAB00251374 /* Operation.swift */; };
 		6BAE83A61E426C0F00E35E07 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE83A51E426C0F00E35E07 /* StringTests.swift */; };
 		6BAE83C91E48EAB500E35E07 /* OperationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE83C81E48EAB500E35E07 /* OperationTest.swift */; };
+		6BC234C51EA6D90B00A4E54E /* UIColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC234C41EA6D90B00A4E54E /* UIColorTests.swift */; };
+		6BC234C71EA6DC6700A4E54E /* CGFloatConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC234C61EA6DC6700A4E54E /* CGFloatConvertible.swift */; };
+		6BC234C81EA6DC6700A4E54E /* CGFloatConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC234C61EA6DC6700A4E54E /* CGFloatConvertible.swift */; };
 		6BD3A8AC1E58F1B5001CD84D /* ConstraintsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD3A8AB1E58F1B5001CD84D /* ConstraintsTests.swift */; };
 		6BD3A8AE1E58F1B5001CD84D /* ARKExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BDD3B011DDCEE5E002B47A7 /* ARKExtensions.framework */; };
 		6BD3A8B51E59A769001CD84D /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD3A8B41E59A769001CD84D /* Nimble.framework */; };
@@ -34,7 +37,6 @@
 		6BDD3B221DDCF957002B47A7 /* NSTimer+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BDD3B0E1DDCF15D002B47A7 /* NSTimer+Blocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6BDD3B231DDCF95E002B47A7 /* NSTimer+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BDD3B0F1DDCF15D002B47A7 /* NSTimer+Blocks.m */; };
 		6BEAA7451E94D6C900785429 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEAA7441E94D6C900785429 /* UIColor.swift */; };
-		6BEAA7481E94DB4200785429 /* UIColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEAA7461E94DB0B00785429 /* UIColorTests.swift */; };
 		6BF80E511DF382BC00F0635C /* Enumerable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF80E501DF382BC00F0635C /* Enumerable.swift */; };
 		6BF80E681DF3848C00F0635C /* EnumerableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF80E671DF3848C00F0635C /* EnumerableTests.swift */; };
 		6BF80E6A1DF3848C00F0635C /* ARKExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BDD3B191DDCF8CB002B47A7 /* ARKExtensions.framework */; };
@@ -91,6 +93,8 @@
 		6BADB69F1E1C1EAB00251374 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		6BAE83A51E426C0F00E35E07 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		6BAE83C81E48EAB500E35E07 /* OperationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationTest.swift; sourceTree = "<group>"; };
+		6BC234C41EA6D90B00A4E54E /* UIColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorTests.swift; sourceTree = "<group>"; };
+		6BC234C61EA6DC6700A4E54E /* CGFloatConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloatConvertible.swift; sourceTree = "<group>"; };
 		6BD3A8A91E58F1B5001CD84D /* ARKExtensions-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ARKExtensions-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD3A8AB1E58F1B5001CD84D /* ConstraintsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsTests.swift; sourceTree = "<group>"; };
 		6BD3A8AD1E58F1B5001CD84D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,7 +111,6 @@
 		6BDD3B1B1DDCF8CB002B47A7 /* ARKExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARKExtensions.h; sourceTree = "<group>"; };
 		6BDD3B1C1DDCF8CB002B47A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6BEAA7441E94D6C900785429 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		6BEAA7461E94DB0B00785429 /* UIColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorTests.swift; path = "../ARKExtensions-macOSTests/UIColorTests.swift"; sourceTree = "<group>"; };
 		6BF80E501DF382BC00F0635C /* Enumerable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumerable.swift; sourceTree = "<group>"; };
 		6BF80E651DF3848C00F0635C /* ARKExtensions-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ARKExtensions-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BF80E671DF3848C00F0635C /* EnumerableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumerableTests.swift; sourceTree = "<group>"; };
@@ -160,9 +163,9 @@
 		6BD3A8AA1E58F1B5001CD84D /* ARKExtensions-iOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				6BEAA7461E94DB0B00785429 /* UIColorTests.swift */,
 				6BD3A8B41E59A769001CD84D /* Nimble.framework */,
 				6BD3A8AB1E58F1B5001CD84D /* ConstraintsTests.swift */,
+				6BC234C41EA6D90B00A4E54E /* UIColorTests.swift */,
 				6BD3A8AD1E58F1B5001CD84D /* Info.plist */,
 			);
 			path = "ARKExtensions-iOSTests";
@@ -201,6 +204,7 @@
 				6BDD3B0F1DDCF15D002B47A7 /* NSTimer+Blocks.m */,
 				6BADB69F1E1C1EAB00251374 /* Operation.swift */,
 				6B1B559E1E40AB57005F8852 /* DispatchTimer.swift */,
+				6BC234C61EA6DC6700A4E54E /* CGFloatConvertible.swift */,
 			);
 			path = ARKExtensions;
 			sourceTree = "<group>";
@@ -426,7 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BD3A8AC1E58F1B5001CD84D /* ConstraintsTests.swift in Sources */,
-				6BEAA7481E94DB4200785429 /* UIColorTests.swift in Sources */,
+				6BC234C51EA6D90B00A4E54E /* UIColorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +444,7 @@
 				6BADB69E1E1C1B2500251374 /* UIViewController+AlertController.swift in Sources */,
 				6BDD3B0D1DDCEFDF002B47A7 /* Extensions.swift in Sources */,
 				6BDD3B121DDCF167002B47A7 /* NSTimer+Blocks.m in Sources */,
+				6BC234C71EA6DC6700A4E54E /* CGFloatConvertible.swift in Sources */,
 				6BDD3B0C1DDCEEFC002B47A7 /* Misc.swift in Sources */,
 				6BF80E511DF382BC00F0635C /* Enumerable.swift in Sources */,
 				6BEAA7451E94D6C900785429 /* UIColor.swift in Sources */,
@@ -452,6 +457,7 @@
 			files = (
 				6BF80E761DF3870400F0635C /* Enumerable.swift in Sources */,
 				6BDD3B231DDCF95E002B47A7 /* NSTimer+Blocks.m in Sources */,
+				6BC234C81EA6DC6700A4E54E /* CGFloatConvertible.swift in Sources */,
 				6B1B55A21E40AD63005F8852 /* DispatchTimer.swift in Sources */,
 				6BDD3B211DDCF951002B47A7 /* Extensions.swift in Sources */,
 				6BADB6A11E1C1EAB00251374 /* Operation.swift in Sources */,

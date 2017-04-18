@@ -13,13 +13,13 @@ import Nimble
 class UIColorTests: XCTestCase {
 
     func test255() {
-        expect(CGFloat(127.5) / 255) == CGFloat(0.5)
 
-        var color = UIColor(red255: 127.5, green: 127.5, blue: 127.5)
-        expect(color) == UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
-
-        color = UIColor(red255: 127.5, green: 127.5, blue: 127.5, alpha: 0.5)
-        expect(color) == UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let rUint: UInt = 153
+        let gInt = 102
+        let bDouble = 51.0
+        
+        let color = UIColor(red255: rUint, green: gInt, blue: bDouble)
+        expect(color) == UIColor.brown
     }
 
     func testHex() {
