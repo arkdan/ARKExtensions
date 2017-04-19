@@ -2,7 +2,7 @@
 
 cool stuff in bold
 
-[**DispatchTimer**](https://github.com/arkdan/ARKExtensions#dispatchtimer) | [Dispatch delay](https://github.com/arkdan/ARKExtensions#delay) | [substring(Int)](https://github.com/arkdan/ARKExtensions#strings) | [Double round](https://github.com/arkdan/ARKExtensions#double) | [safe collection subscript](https://github.com/arkdan/ARKExtensions#collection) | [**Operation**](https://github.com/arkdan/ARKExtensions#ooperation) | [OperationQueue](https://github.com/arkdan/ARKExtensions#ooperationqueue) | [**AlertController**](https://github.com/arkdan/ARKExtensions#alertcontroller) | [**UIView constraints**](https://github.com/arkdan/ARKExtensions#uiview-constraints)
+[**DispatchTimer**](https://github.com/arkdan/ARKExtensions#dispatchtimer) | [Dispatch delay](https://github.com/arkdan/ARKExtensions#delay) | [substring(Int)](https://github.com/arkdan/ARKExtensions#strings) | [Double round](https://github.com/arkdan/ARKExtensions#double) | [safe collection subscript](https://github.com/arkdan/ARKExtensions#collection) | [**Operation**](https://github.com/arkdan/ARKExtensions#ooperation) | [OperationQueue](https://github.com/arkdan/ARKExtensions#ooperationqueue) | [**AlertController**](https://github.com/arkdan/ARKExtensions#alertcontroller) | [**UIView constraints**](https://github.com/arkdan/ARKExtensions#uiview-constraints) | [UIColor 255](https://github.com/arkdan/ARKExtensions#uicolor-255)
 
 ### Installation
 Please use carthage:
@@ -245,3 +245,16 @@ subview1.constraint(.trailing, to: .leading, ofSibling: subview2, constant: 20)
 
 • combine as you want, as you would in IB. Autolayout rules do not change.
 
+
+### UIColor 255
+
+Convenience, `0 to 255` instead of `0 to 1`. Don`t worry about converting to CGFloat, too - works with Double, Int, UInt, and CGFloat, and you can mix if you want
+
+```swift
+let rUint: UInt = 153
+let gInt = 102
+let bDouble = 51.0
+
+let color = UIColor(red255: rUint, green: gInt, blue: bDouble)
+expect(color) == UIColor.brown
+```
