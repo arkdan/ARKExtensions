@@ -1,4 +1,4 @@
-## Tools
+## where stock types come short
 
 cool stuff in bold
 
