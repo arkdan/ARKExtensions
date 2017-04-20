@@ -7,9 +7,9 @@ cool stuff in bold
 ### Installation
 Please use carthage:
 ```
-github "arkdan/ARKExtensions"
+github "arkdan/ARKExtensions" "master"
 ```
-No, seriously, use carthage, please. No pods.
+No, seriously, use carthage, please. Not pods.
 
 ### DispatchTimer
 
