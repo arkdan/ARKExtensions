@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04EB148A1EB2B933004FBA93 /* SynchronizedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EB14891EB2B933004FBA93 /* SynchronizedArray.swift */; };
 		6B0DEA431E0159D600FD04A5 /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0DEA421E0159D600FD04A5 /* ExtensionsTests.swift */; };
 		6B1B559F1E40AB57005F8852 /* DispatchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B559E1E40AB57005F8852 /* DispatchTimer.swift */; };
 		6B1B55A11E40ACB3005F8852 /* DispatchTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B55A01E40ACB3005F8852 /* DispatchTimerTests.swift */; };
@@ -84,6 +85,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04EB14891EB2B933004FBA93 /* SynchronizedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronizedArray.swift; sourceTree = "<group>"; };
 		6B0DEA421E0159D600FD04A5 /* ExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
 		6B1B559E1E40AB57005F8852 /* DispatchTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DispatchTimer.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6B1B55A01E40ACB3005F8852 /* DispatchTimerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DispatchTimerTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -205,6 +207,7 @@
 				6BADB69F1E1C1EAB00251374 /* Operation.swift */,
 				6B1B559E1E40AB57005F8852 /* DispatchTimer.swift */,
 				6BC234C61EA6DC6700A4E54E /* CGFloatConvertible.swift */,
+				04EB14891EB2B933004FBA93 /* SynchronizedArray.swift */,
 			);
 			path = ARKExtensions;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				6BDD3B0C1DDCEEFC002B47A7 /* Misc.swift in Sources */,
 				6BF80E511DF382BC00F0635C /* Enumerable.swift in Sources */,
 				6BEAA7451E94D6C900785429 /* UIColor.swift in Sources */,
+				04EB148A1EB2B933004FBA93 /* SynchronizedArray.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
