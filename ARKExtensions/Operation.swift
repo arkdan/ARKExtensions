@@ -95,6 +95,11 @@ open class OOperationQueue: OperationQueue {
     /// called each time all operations are completed.
     public var whenEmpty: (() -> Void)?
 
+    public convenience init(maxConcurrent: Int) {
+        self.init()
+        maxConcurrentOperationCount = maxConcurrent
+    }
+
     /*
     override init() {
         super.init()
