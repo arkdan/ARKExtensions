@@ -2,10 +2,11 @@
 
 cool stuff in bold
 
-[**DispatchTimer**](https://github.com/arkdan/ARKExtensions#dispatchtimer) | [Dispatch delay](https://github.com/arkdan/ARKExtensions#delay) | [substring(Int)](https://github.com/arkdan/ARKExtensions#strings) | [Double round](https://github.com/arkdan/ARKExtensions#double) | [safe collection subscript](https://github.com/arkdan/ARKExtensions#collection) | [**Operation**](https://github.com/arkdan/ARKExtensions#ooperation) | [OperationQueue](https://github.com/arkdan/ARKExtensions#ooperationqueue) | [**AlertController**](https://github.com/arkdan/ARKExtensions#alertcontroller) | [**UIView constraints**](https://github.com/arkdan/ARKExtensions#uiview-constraints) | [UIColor 255](https://github.com/arkdan/ARKExtensions#uicolor-255)
+[**DispatchTimer**](https://github.com/arkdan/ARKExtensions#dispatchtimer) | [Dispatch delay](https://github.com/arkdan/ARKExtensions#delay) | [substring(Int)](https://github.com/arkdan/ARKExtensions#strings) | [Double round](https://github.com/arkdan/ARKExtensions#double) | [safe collection subscript](https://github.com/arkdan/ARKExtensions#collection) | [**Operation**](https://github.com/arkdan/ARKExtensions#ooperation) | [OperationQueue](https://github.com/arkdan/ARKExtensions#ooperationqueue) | [**AlertController**](https://github.com/arkdan/ARKExtensions#alertcontroller) | [**UIView constraints**](https://github.com/arkdan/ARKExtensions#uiview-constraints) | [UIColor 255](https://github.com/arkdan/ARKExtensions#uicolor-255) | [WeakObjectSet](https://github.com/arkdan/ARKExtensions#weakobjectset)
 
 ### Installation
 Please use carthage:
+
 ```
 github "arkdan/ARKExtensions" "master"
 ```
@@ -63,14 +64,19 @@ expect(substring) == "5"
 ```
 
 ### Double
+
 round(digits: Int) mostly for printing
+
 ```swift
 let double = 0.123456789;
 let rounded = double.round(2)
 expect(rounded) == 0.12
 ```
+
 ### Collection
+
 safe subscript - nil if out of bounds
+
 ```swift
 guard let element = array[safe: 100500] else { return }
 // do stuff with element
@@ -257,4 +263,24 @@ let bDouble = 51.0
 
 let color = UIColor(red255: rUint, green: gInt, blue: bDouble)
 expect(color) == UIColor.brown
+```
+
+### WeakObjectSet
+
+A collection that stores weak references to its elements. *Set* because it uses a `Set` as backing storage.
+
+If you need multiple delegates, but don't want to get involved with NotificationCenter - `WeakObjectSet` is the data structure to hold your delegates.
+
+Pity we can't (yet) use protocols as the generic type `T`.
+
+```swift
+var object: Listener? = Listener(name: "aaa")
+
+let weakSet = WeakObjectSet<Listener>()
+
+weakSet.add(object!)
+expect(weakSet.contains(object!)) == true
+
+object = nil
+expect(weakSet.isEmpty) == true
 ```

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		04EB148A1EB2B933004FBA93 /* SynchronizedArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EB14891EB2B933004FBA93 /* SynchronizedArray.swift */; };
+		21A8CA6D1EE9EA4D009A4DB3 /* WeakObjectSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8CA6C1EE9EA4D009A4DB3 /* WeakObjectSet.swift */; };
+		21A8CA6E1EE9EA4D009A4DB3 /* WeakObjectSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A8CA6C1EE9EA4D009A4DB3 /* WeakObjectSet.swift */; };
+		21B8D8841EED465300070947 /* WeakSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B8D8831EED465300070947 /* WeakSetTests.swift */; };
 		6B0DEA431E0159D600FD04A5 /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0DEA421E0159D600FD04A5 /* ExtensionsTests.swift */; };
 		6B1B559F1E40AB57005F8852 /* DispatchTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B559E1E40AB57005F8852 /* DispatchTimer.swift */; };
 		6B1B55A11E40ACB3005F8852 /* DispatchTimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1B55A01E40ACB3005F8852 /* DispatchTimerTests.swift */; };
@@ -86,6 +89,8 @@
 
 /* Begin PBXFileReference section */
 		04EB14891EB2B933004FBA93 /* SynchronizedArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronizedArray.swift; sourceTree = "<group>"; };
+		21A8CA6C1EE9EA4D009A4DB3 /* WeakObjectSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakObjectSet.swift; sourceTree = "<group>"; };
+		21B8D8831EED465300070947 /* WeakSetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakSetTests.swift; sourceTree = "<group>"; };
 		6B0DEA421E0159D600FD04A5 /* ExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
 		6B1B559E1E40AB57005F8852 /* DispatchTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DispatchTimer.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6B1B55A01E40ACB3005F8852 /* DispatchTimerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DispatchTimerTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -208,6 +213,7 @@
 				6B1B559E1E40AB57005F8852 /* DispatchTimer.swift */,
 				6BC234C61EA6DC6700A4E54E /* CGFloatConvertible.swift */,
 				04EB14891EB2B933004FBA93 /* SynchronizedArray.swift */,
+				21A8CA6C1EE9EA4D009A4DB3 /* WeakObjectSet.swift */,
 			);
 			path = ARKExtensions;
 			sourceTree = "<group>";
@@ -244,6 +250,7 @@
 				6B1B55A01E40ACB3005F8852 /* DispatchTimerTests.swift */,
 				6B0DEA421E0159D600FD04A5 /* ExtensionsTests.swift */,
 				6BF80E671DF3848C00F0635C /* EnumerableTests.swift */,
+				21B8D8831EED465300070947 /* WeakSetTests.swift */,
 				6BF80E691DF3848C00F0635C /* Info.plist */,
 			);
 			path = "ARKExtensions-macOSTests";
@@ -354,7 +361,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = arkdan;
 				TargetAttributes = {
 					6BD3A8A81E58F1B5001CD84D = {
@@ -442,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BDD3B0A1DDCEE78002B47A7 /* Constraints.swift in Sources */,
+				21A8CA6D1EE9EA4D009A4DB3 /* WeakObjectSet.swift in Sources */,
 				6BADB6A01E1C1EAB00251374 /* Operation.swift in Sources */,
 				6B1B559F1E40AB57005F8852 /* DispatchTimer.swift in Sources */,
 				6BADB69E1E1C1B2500251374 /* UIViewController+AlertController.swift in Sources */,
@@ -461,6 +469,7 @@
 			files = (
 				6BF80E761DF3870400F0635C /* Enumerable.swift in Sources */,
 				6BDD3B231DDCF95E002B47A7 /* NSTimer+Blocks.m in Sources */,
+				21A8CA6E1EE9EA4D009A4DB3 /* WeakObjectSet.swift in Sources */,
 				6BC234C81EA6DC6700A4E54E /* CGFloatConvertible.swift in Sources */,
 				6B1B55A21E40AD63005F8852 /* DispatchTimer.swift in Sources */,
 				6BDD3B211DDCF951002B47A7 /* Extensions.swift in Sources */,
@@ -473,6 +482,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B1B55A11E40ACB3005F8852 /* DispatchTimerTests.swift in Sources */,
+				21B8D8841EED465300070947 /* WeakSetTests.swift in Sources */,
 				6B723B411E7D59150023856D /* OperationQueueTests.swift in Sources */,
 				6BAE83C91E48EAB500E35E07 /* OperationTest.swift in Sources */,
 				6BF80E681DF3848C00F0635C /* EnumerableTests.swift in Sources */,
