@@ -1,6 +1,6 @@
 //
 //  Extensions.swift
-//  TimeLoggerScandi
+//  ARKExtensions
 //
 //  Created by ark dan on 10/4/16.
 //  Copyright © 2016 arkdan. All rights reserved.

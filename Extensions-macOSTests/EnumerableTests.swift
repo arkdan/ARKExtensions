@@ -8,7 +8,7 @@
 
 import XCTest
 import Nimble
-@testable import ARKExtensions
+@testable import Extensions
 
 enum Eeee: Int {
     case one

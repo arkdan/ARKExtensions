@@ -14,23 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6BDD3B001DDCEE5E002B47A7"
-               BuildableName = "ARKExtensions.framework"
-               BlueprintName = "ARKExtensions-iOS"
-               ReferencedContainer = "container:ARKExtensions.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6BD3A8A81E58F1B5001CD84D"
-               BuildableName = "ARKExtensions-iOSTests.xctest"
-               BlueprintName = "ARKExtensions-iOSTests"
+               BlueprintIdentifier = "210B7CC81F1A875B00B7C878"
+               BuildableName = "UIKitExtensions.framework"
+               BlueprintName = "UIKitExtensions"
                ReferencedContainer = "container:ARKExtensions.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -40,16 +26,15 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6BD3A8A81E58F1B5001CD84D"
-               BuildableName = "ARKExtensions-iOSTests.xctest"
-               BlueprintName = "ARKExtensions-iOSTests"
+               BlueprintIdentifier = "210B7CD01F1A875B00B7C878"
+               BuildableName = "UIKitExtensionsTests.xctest"
+               BlueprintName = "UIKitExtensionsTests"
                ReferencedContainer = "container:ARKExtensions.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -57,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6BDD3B001DDCEE5E002B47A7"
-            BuildableName = "ARKExtensions.framework"
-            BlueprintName = "ARKExtensions-iOS"
+            BlueprintIdentifier = "210B7CC81F1A875B00B7C878"
+            BuildableName = "UIKitExtensions.framework"
+            BlueprintName = "UIKitExtensions"
             ReferencedContainer = "container:ARKExtensions.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -79,9 +64,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6BDD3B001DDCEE5E002B47A7"
-            BuildableName = "ARKExtensions.framework"
-            BlueprintName = "ARKExtensions-iOS"
+            BlueprintIdentifier = "210B7CC81F1A875B00B7C878"
+            BuildableName = "UIKitExtensions.framework"
+            BlueprintName = "UIKitExtensions"
             ReferencedContainer = "container:ARKExtensions.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -97,9 +82,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6BDD3B001DDCEE5E002B47A7"
-            BuildableName = "ARKExtensions.framework"
-            BlueprintName = "ARKExtensions-iOS"
+            BlueprintIdentifier = "210B7CC81F1A875B00B7C878"
+            BuildableName = "UIKitExtensions.framework"
+            BlueprintName = "UIKitExtensions"
             ReferencedContainer = "container:ARKExtensions.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -8,7 +8,7 @@
 
 import XCTest
 import Nimble
-@testable import ARKExtensions
+@testable import Extensions
 
 func currentQueueName() -> String? {
     let name = __dispatch_queue_get_label(nil)
@@ -28,7 +28,7 @@ class ExecOperation: OOperation {
             self.delay = delay
         }
         self.execution = { finished in
-            ARKExtensions.delay(self.delay) {
+            Extensions.delay(self.delay) {
                 self.executed = true
                 finished()
             }

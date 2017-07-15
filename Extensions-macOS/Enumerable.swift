@@ -1,6 +1,6 @@
 //
 //  Enumerable.swift
-//  TimeLoggerScandi
+//  ARKExtensions
 //
 //  Created by ark dan on 10/2/16.
 //  Copyright © 2016 ark.dan. All rights reserved.

@@ -8,7 +8,7 @@
 
 import XCTest
 import Nimble
-@testable import ARKExtensions
+@testable import Extensions
 
 class StringTests: XCTestCase {
 
