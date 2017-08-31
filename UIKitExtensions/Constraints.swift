@@ -92,6 +92,11 @@ extension UIView {
 }
 
 extension UIView {
+
+    var widthConstraint: NSLayoutConstraint? {
+        return constraints.first { $0.firstItem as! NSLayoutConstraint == self }
+    }
+
     @discardableResult
     public func constraint(size: (CGFloatConvertible, CGFloatConvertible)) -> [NSLayoutConstraint] {
         return constraint(size: CGSize(width: size.0.cgFloat, height: size.1.cgFloat))
