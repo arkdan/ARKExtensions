@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		040DBE151F5828D300B38F00 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040DBE141F5828D300B38F00 /* UICollectionView.swift */; };
+		041C708B1F5936BA00D7CE5D /* ConfiguredCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C708A1F5936BA00D7CE5D /* ConfiguredCell.swift */; };
 		210B7C3A1F1A74B000B7C878 /* Extensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210B7C311F1A74AF00B7C878 /* Extensions.framework */; };
 		210B7C411F1A74B000B7C878 /* Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 210B7C331F1A74B000B7C878 /* Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		210B7C561F1A77A600B7C878 /* Extensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210B7C4D1F1A77A500B7C878 /* Extensions.framework */; };
@@ -119,6 +120,7 @@
 
 /* Begin PBXFileReference section */
 		040DBE141F5828D300B38F00 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		041C708A1F5936BA00D7CE5D /* ConfiguredCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguredCell.swift; sourceTree = "<group>"; };
 		210B7C311F1A74AF00B7C878 /* Extensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Extensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		210B7C331F1A74B000B7C878 /* Extensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Extensions.h; sourceTree = "<group>"; };
 		210B7C341F1A74B000B7C878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				210B7CCB1F1A875B00B7C878 /* UIKitExtensions.h */,
 				210B7CCC1F1A875B00B7C878 /* Info.plist */,
 				040DBE141F5828D300B38F00 /* UICollectionView.swift */,
+				041C708A1F5936BA00D7CE5D /* ConfiguredCell.swift */,
 			);
 			path = UIKitExtensions;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				210B7CE71F1A87CC00B7C878 /* Misc.swift in Sources */,
+				041C708B1F5936BA00D7CE5D /* ConfiguredCell.swift in Sources */,
 				210B7CE91F1A87CC00B7C878 /* UIViewController+AlertController.swift in Sources */,
 				210B7CE81F1A87CC00B7C878 /* UIColor.swift in Sources */,
 				210B7CE61F1A87CC00B7C878 /* Constraints.swift in Sources */,
