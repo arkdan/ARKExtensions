@@ -14,7 +14,7 @@
 + (instancetype)ssscheduledTimerWithTimeInterval:(NSTimeInterval)timeInterval repeats:(BOOL)repeats
                                            block:(void (^)(NSTimer *))block
 {
-    void (^copy)() = [block copy];
+    void (^copy)(void) = [block copy];
     NSTimer *timer = [self scheduledTimerWithTimeInterval:timeInterval
                                                    target:self
                                                  selector:@selector(onTimer:)
@@ -26,7 +26,7 @@
 + (instancetype)tttimerWithTimeInterval:(NSTimeInterval)timeInterval repeats:(BOOL)repeats
                                   block:(void (^)(NSTimer *))block
 {
-    void (^copy)() = [block copy];
+    void (^copy)(void) = [block copy];
     NSTimer *timer = [self timerWithTimeInterval:timeInterval
                                           target:self
                                         selector:@selector(onTimer:)
@@ -37,7 +37,7 @@
 
 + (void)onTimer:(NSTimer *)timer
 {
-    void (^block)() = (void (^)())timer.userInfo;
+    void (^block)(NSTimer *) = (void (^)(NSTimer *))timer.userInfo;
     if (block)
         block(timer);
 }
