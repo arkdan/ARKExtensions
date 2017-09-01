@@ -62,18 +62,18 @@ extension String {
 
     public func substring(from: Int) -> String {
         let fromIndex = index(at: from)
-        return substring(from: fromIndex)
+        return String(self[fromIndex...])
     }
 
     public func substring(to: Int) -> String {
         let toIndex = index(at: to)
-        return substring(to: toIndex)
+        return String(self[..<toIndex])
     }
 
     public func substring(with range: Range<Int>) -> String {
         let startIndex = index(at: range.lowerBound)
         let endIndex = index(at: range.upperBound)
-        return substring(with: startIndex..<endIndex)
+        return String(self[startIndex..<endIndex])
     }
 }
 

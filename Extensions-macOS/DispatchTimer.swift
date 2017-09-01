@@ -53,9 +53,8 @@ public class DispatchTimer {
         dispatchSourceTimer = nil
 
         dispatchSourceTimer = DispatchSource.makeTimerSource(queue: queue)
-        dispatchSourceTimer?.scheduleRepeating(deadline: .fromNow(seconds: timeInterval),
-                                               interval: .withSeconds(timeInterval),
-                                               leeway: .nanoseconds(1))
+        dispatchSourceTimer?.schedule(deadline: .fromNow(seconds: timeInterval),
+                                      repeating: .withSeconds(timeInterval))
 
         let handler: () -> ()
         if maxFireCount == Int.max {
