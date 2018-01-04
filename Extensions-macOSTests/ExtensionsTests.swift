@@ -29,6 +29,34 @@ class ExtensionsTests: XCTestCase {
         expect(pi.round(2)) == pi3.round(2)
     }
 
+    func testRandom() {
+        let exp0 = expectation(description: "0")
+        let exp1 = expectation(description: "1")
+        let exp2 = expectation(description: "2")
+        let exp3 = expectation(description: "3")
+        let exp4 = expectation(description: "4")
+        let i = 4
+
+        for _ in 0..<100 {
+            if i.random() == 0 {
+                exp0.fulfill()
+            }
+            if i.random() == 1 {
+                exp1.fulfill()
+            }
+            if i.random() == 2 {
+                exp2.fulfill()
+            }
+            if i.random() == 3 {
+                exp3.fulfill()
+            }
+            if i.random() == 4 {
+                exp4.fulfill()
+            }
+        }
+        waitForExpectations(timeout: 0.1, handler: nil)
+    }
+
     func testSafeSubscript() {
         let array = ["0", "1", "2", "3", "4", "5", "6"]
         expect(array[safe: 4]) == "4"
