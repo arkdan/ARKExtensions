@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 extension UIView {
 
     public func snapshot() -> UIImage {
@@ -26,6 +27,13 @@ extension UIView {
     public func makeRounded() {
         let s = min(bounds.width, bounds.height)
         self.makeRounded(radius: s / 2)
+    }
+
+    public func applyRoundBorder(radius: CGFloatConvertible, width: CGFloatConvertible, color c: UIColor? = nil) {
+        let color = c ?? tintColor
+        layer.borderColor = color?.cgColor
+        layer.borderWidth = width.cgFloat
+        layer.cornerRadius = radius.cgFloat
     }
 }
 

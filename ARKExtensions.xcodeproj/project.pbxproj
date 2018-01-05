@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		040DBE151F5828D300B38F00 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040DBE141F5828D300B38F00 /* UICollectionView.swift */; };
 		041C708B1F5936BA00D7CE5D /* ConfiguredCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C708A1F5936BA00D7CE5D /* ConfiguredCell.swift */; };
+		048996C020000B2B00A29FCD /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048996BF20000B2B00A29FCD /* UIImage+.swift */; };
+		048996C220000BC100A29FCD /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048996C120000BC100A29FCD /* NibView.swift */; };
+		048996C420000BEE00A29FCD /* UIStoryboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048996C320000BEE00A29FCD /* UIStoryboard+.swift */; };
+		048996C620000C2200A29FCD /* TapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048996C520000C2200A29FCD /* TapGestureRecognizer.swift */; };
 		04CF4D081FFCFB1F0077128E /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF4D031FFCFB1E0077128E /* UIView+.swift */; };
 		04CF4D091FFCFB1F0077128E /* UITextView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF4D041FFCFB1E0077128E /* UITextView+.swift */; };
 		04CF4D0A1FFCFB1F0077128E /* UIBarButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF4D051FFCFB1F0077128E /* UIBarButton+.swift */; };
@@ -136,6 +140,10 @@
 /* Begin PBXFileReference section */
 		040DBE141F5828D300B38F00 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		041C708A1F5936BA00D7CE5D /* ConfiguredCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguredCell.swift; sourceTree = "<group>"; };
+		048996BF20000B2B00A29FCD /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		048996C120000BC100A29FCD /* NibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
+		048996C320000BEE00A29FCD /* UIStoryboard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+.swift"; sourceTree = "<group>"; };
+		048996C520000C2200A29FCD /* TapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapGestureRecognizer.swift; sourceTree = "<group>"; };
 		04CF4D031FFCFB1E0077128E /* UIView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		04CF4D041FFCFB1E0077128E /* UITextView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+.swift"; sourceTree = "<group>"; };
 		04CF4D051FFCFB1F0077128E /* UIBarButton+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButton+.swift"; sourceTree = "<group>"; };
@@ -303,14 +311,18 @@
 				041C708A1F5936BA00D7CE5D /* ConfiguredCell.swift */,
 				210B7CE11F1A87CC00B7C878 /* Constraints.swift */,
 				210B7CE21F1A87CC00B7C878 /* Misc.swift */,
+				048996C120000BC100A29FCD /* NibView.swift */,
 				04CF4D061FFCFB1F0077128E /* TapAction.swift */,
+				048996C520000C2200A29FCD /* TapGestureRecognizer.swift */,
+				048996C320000BEE00A29FCD /* UIStoryboard+.swift */,
 				04CF4D051FFCFB1F0077128E /* UIBarButton+.swift */,
 				040DBE141F5828D300B38F00 /* UICollectionView.swift */,
 				210B7CE31F1A87CC00B7C878 /* UIColor.swift */,
-				210B7CCB1F1A875B00B7C878 /* UIKitExtensions.h */,
+				048996BF20000B2B00A29FCD /* UIImage+.swift */,
 				04CF4D041FFCFB1E0077128E /* UITextView+.swift */,
 				04CF4D031FFCFB1E0077128E /* UIView+.swift */,
 				210B7CE41F1A87CC00B7C878 /* UIViewController+AlertController.swift */,
+				210B7CCB1F1A875B00B7C878 /* UIKitExtensions.h */,
 				210B7CCC1F1A875B00B7C878 /* Info.plist */,
 			);
 			path = UIKitExtensions;
@@ -676,14 +688,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				04CF4D0C1FFCFB1F0077128E /* CGSize+.swift in Sources */,
+				048996C620000C2200A29FCD /* TapGestureRecognizer.swift in Sources */,
 				040DBE151F5828D300B38F00 /* UICollectionView.swift in Sources */,
 				210B7CE71F1A87CC00B7C878 /* Misc.swift in Sources */,
 				041C708B1F5936BA00D7CE5D /* ConfiguredCell.swift in Sources */,
 				04CF4D0A1FFCFB1F0077128E /* UIBarButton+.swift in Sources */,
+				048996C420000BEE00A29FCD /* UIStoryboard+.swift in Sources */,
 				210B7CE91F1A87CC00B7C878 /* UIViewController+AlertController.swift in Sources */,
+				048996C220000BC100A29FCD /* NibView.swift in Sources */,
 				04CF4D091FFCFB1F0077128E /* UITextView+.swift in Sources */,
 				04CF4D0B1FFCFB1F0077128E /* TapAction.swift in Sources */,
 				04CF4D081FFCFB1F0077128E /* UIView+.swift in Sources */,
+				048996C020000B2B00A29FCD /* UIImage+.swift in Sources */,
 				210B7CE81F1A87CC00B7C878 /* UIColor.swift in Sources */,
 				210B7CE61F1A87CC00B7C878 /* Constraints.swift in Sources */,
 				210B7CE51F1A87CC00B7C878 /* CGFloatConvertible.swift in Sources */,
