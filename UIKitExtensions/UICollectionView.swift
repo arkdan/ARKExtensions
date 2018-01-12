@@ -9,6 +9,18 @@
 import UIKit
 
 extension UICollectionView {
+
+    public func scrollToBottom(animated: Bool = true) {
+        let lastsection = numberOfSections - 1
+        guard lastsection >= 0 else { return }
+
+        let lastItem = numberOfItems(inSection: lastsection) - 1
+        guard lastItem >= 0 else { return }
+
+        let indexPath = IndexPath(row: lastItem, section: lastsection)
+        scrollToItem(at: indexPath, at: .bottom, animated: animated)
+    }
+
     public func verticalScrollCellToVisible(at indexPath: IndexPath) {
         guard let attributes = layoutAttributesForItem(at: indexPath) else { return }
         let cellFrame = attributes.frame

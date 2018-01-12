@@ -78,27 +78,6 @@ extension UIViewController {
 
         let op = AlertOperation(title: title, message: message, cancelButtonTitle: cancelButtonTitle, otherButtonTitles: otherButtonTitles, handler: handler, presentation: presentation)
 
-//        let op = OOperation { finished in
-//            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-//            let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { alert in
-//                handler?(0)
-//                finished()
-//            }
-//            alert.addAction(cancelAction)
-//
-//            if let titles = otherButtonTitles {
-//                for (index, title) in titles.enumerated() {
-//                    let action = UIAlertAction(title: title, style: .default) { (alert) -> Void in
-//                        handler?(index + 1) // shifted by one because of 'cancel' action
-//                        finished()
-//                    }
-//                    alert.addAction(action)
-//                }
-//            }
-//            self.present(alert, animated: true, completion: nil)
-//
-//        }
-
         alertQueue.addOperation(op)
         return op.alert
     }
