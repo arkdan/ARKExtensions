@@ -33,3 +33,21 @@ extension String {
         return substring(with: startIndex..<endIndex)
     }
 }
+
+extension String {
+
+    public func isValidEmail() -> Bool {
+        let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        return isPassingRegex(pattern)
+    }
+
+    public func isPassingRegex(_ pattern: String) -> Bool {
+        guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else { return false }
+
+        let range = NSRange(location: 0, length: self.characters.count)
+        return regex.firstMatch(in: self, options: [], range: range) != nil
+    }
+}
+
+

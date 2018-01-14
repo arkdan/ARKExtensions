@@ -31,4 +31,35 @@ class StringTests: XCTestCase {
         expect(substring) == "5"
     }
 
+    func testValidEmail() {
+        var string = ""
+
+        string = string + "qwertyu"
+        expect(string.isValidEmail()) == false
+        string = string + "@"
+        expect(string.isValidEmail()) == false
+        string = string + "dfgh"
+        expect(string.isValidEmail()) == false
+        string = string + "."
+        expect(string.isValidEmail()) == false
+        string = string + "n"
+        expect(string.isValidEmail()) == false
+        string = string + "n"
+        expect(string.isValidEmail()) == true
+
+        string = "132ghfhgfghf@12313.12321"
+        expect(string.isValidEmail()) == false
+
+        string = "132ghfhgfghf@12313.nnn"
+        expect(string.isValidEmail()) == true
+
+        string = "132g.hfhgf.ghf@12313.nnn"
+        expect(string.isValidEmail()) == true
+
+        string = "132ghfhgfghf@123 13.nnn"
+        expect(string.isValidEmail()) == false
+
+        string = "132ghfhgfghf@12313.n nn"
+        expect(string.isValidEmail()) == false
+    }
 }
