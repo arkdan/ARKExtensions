@@ -1,6 +1,6 @@
 //
 //  UIBarButton+.swift
-//  PhotoStory
+//  UIKitExtensions
 //
 //  Created by mac on 12/8/17.
 //  Copyright © 2017 arkdan. All rights reserved.

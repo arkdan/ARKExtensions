@@ -1,6 +1,6 @@
 //
 //  OptionSet+.swift
-//  PhotoStory
+//  ARKExtensions
 //
 //  Created by mac on 12/19/17.
 //  Copyright © 2017 arkdan. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  UIViewController+AlertController.swift
-//  ARKExtensions
+//  UIKitExtensions
 //
 //  Created by ark dan on 3/25/16.
 //  Copyright © 2016 arkdan. All rights reserved.

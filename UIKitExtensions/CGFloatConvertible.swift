@@ -1,6 +1,6 @@
 //
 //  CGFloatConvertible.swift
-//  ARKExtensions
+//  UIKitExtensions
 //
 //  Created by ark dan on 4/19/17.
 //  Copyright © 2017 arkdan. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  UIViewExtensions.swift
-//  PhotoStory
+//  UIKitExtensions
 //
 //  Created by mac on 12/8/17.
 //  Copyright © 2017 arkdan. All rights reserved.
@@ -29,7 +29,7 @@ extension UIView {
         self.makeRounded(radius: s / 2)
     }
 
-    public func applyRoundBorder(radius: CGFloatConvertible, width: CGFloatConvertible, color c: UIColor? = nil) {
+    public func applyBorder(radius: CGFloatConvertible, width: CGFloatConvertible, color c: UIColor? = nil) {
         let color = c ?? tintColor
         layer.borderColor = color?.cgColor
         layer.borderWidth = width.cgFloat

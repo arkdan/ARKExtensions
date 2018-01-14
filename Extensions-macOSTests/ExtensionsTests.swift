@@ -30,31 +30,47 @@ class ExtensionsTests: XCTestCase {
     }
 
     func testRandom() {
-        let exp0 = expectation(description: "0")
-        let exp1 = expectation(description: "1")
-        let exp2 = expectation(description: "2")
-        let exp3 = expectation(description: "3")
-        let exp4 = expectation(description: "4")
-        let i = 4
+        let i = 5
+        let exps = (0..<i).map { self.expectation(description: "\($0)") }
+        exps.forEach { $0.assertForOverFulfill = false }
 
         for _ in 0..<100 {
             if i.random() == 0 {
-                exp0.fulfill()
+                exps[0].fulfill()
             }
             if i.random() == 1 {
-                exp1.fulfill()
+                exps[1].fulfill()
             }
             if i.random() == 2 {
-                exp2.fulfill()
+                exps[2].fulfill()
             }
             if i.random() == 3 {
-                exp3.fulfill()
+                exps[3].fulfill()
             }
             if i.random() == 4 {
-                exp4.fulfill()
+                exps[4].fulfill()
             }
         }
         waitForExpectations(timeout: 0.1, handler: nil)
+    }
+
+    func testArrayContains() {
+        let array = ["f", "x", "m", "f", "a", "c", "n", "k", "r", "r", "f", "f"]
+
+        var contained = ["x", "m", "f", "a", "m"]
+        expect(array.containsAllElements(from: contained)) == true
+
+        contained = ["f", "x", "m", "f", "a", "c", "n", "k", "r", "r", "f", "f"].reversed()
+        expect(array.containsAllElements(from: contained)) == true
+
+        contained.append(contentsOf: contained)
+        expect(array.containsAllElements(from: contained)) == true
+
+        contained = []
+        expect(array.containsAllElements(from: contained)) == true
+
+        let notContained = ["x", "m", "f", "a", "m", "5"]
+        expect(array.containsAllElements(from: notContained)) == false
     }
 
     func testSafeSubscript() {

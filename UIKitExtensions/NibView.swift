@@ -1,6 +1,6 @@
 //
 //  NibView.swift
-//  RockPaperScissors
+//  UIKitExtensions
 //
 //  Created by mac on 1/4/18.
 //  Copyright © 2018 arkdan. All rights reserved.

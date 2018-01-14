@@ -2,7 +2,7 @@
 
 
 
-[**DispatchTimer**](https://github.com/arkdan/ARKExtensions#dispatchtimer) | [Dispatch delay](https://github.com/arkdan/ARKExtensions#delay) | [Double.round](https://github.com/arkdan/ARKExtensions#double) | [safe collection subscript](https://github.com/arkdan/ARKExtensions#collection) | [**Operation**](https://github.com/arkdan/ARKExtensions#ooperation) | [OperationQueue](https://github.com/arkdan/ARKExtensions#ooperationqueue) | [**AlertController**](https://github.com/arkdan/ARKExtensions#alertcontroller) | [**UIView constraints**](https://github.com/arkdan/ARKExtensions#uiview-constraints) | [UIColor 255](https://github.com/arkdan/ARKExtensions#uicolor-255) | [WeakObjectSet](https://github.com/arkdan/ARKExtensions#weakobjectset)
+[**DispatchTimer**](https://github.com/arkdan/ARKExtensions#dispatchtimer) | [Dispatch delay](https://github.com/arkdan/ARKExtensions#delay) | [Double.round](https://github.com/arkdan/ARKExtensions#double) | [**Collection**](https://github.com/arkdan/ARKExtensions#collection) | [**Operation**](https://github.com/arkdan/ARKExtensions#ooperation) | [OperationQueue](https://github.com/arkdan/ARKExtensions#ooperationqueue) | [**AlertController**](https://github.com/arkdan/ARKExtensions#alertcontroller) | [**UIView constraints**](https://github.com/arkdan/ARKExtensions#uiview-constraints) | [UIColor 255](https://github.com/arkdan/ARKExtensions#uicolor-255) | [WeakObjectSet](https://github.com/arkdan/ARKExtensions#weakobjectset)
 
 
 ### DispatchTimer
@@ -68,11 +68,31 @@ expect(rounded) == 0.12
 
 ### Collection
 
-safe subscript - nil if out of bounds
+• safe subscript - nil if out of bounds:
 
 ```swift
 guard let element = array[safe: 100500] else { return }
 // do stuff with element
+```
+
+• property-based collection sort
+Sorting array of `Model` instances by its string `id` property:
+
+```swift
+let shuffled = (0..<10).shuffled().map { Model(id: "\($0)") }
+
+let sortedAsc = shuffled.sorted(property: { $0.id })
+// [Model(id: "0"), Model(id: "1"), Model(id: "2"), ... Model(id: "9")]
+
+let sortedDesc = shuffled.sorted(property: { $0.id }, ascending: false)
+// [Model(id: "9"), Model(id: "8"), Model(id: "7"), ... Model(id: "0")]
+```
+
+• shuffle
+• any item:
+
+```swift
+let random = [1, 2, 3].any() // throws exception if collection empty. Use anyItem() to be safe.
 ```
 
 ### OOperation

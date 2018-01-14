@@ -9,24 +9,24 @@
 import Foundation
 
 extension FileManager {
-    public func clearDirectory(_ path: String) {
+
+    enum ClearError: Error {
+        case notADirectory
+        case doesNotExist
+    }
+
+    public func clearDirectory(_ path: String) throws {
         var isDirectory: ObjCBool = false
         if !fileExists(atPath: path, isDirectory: &isDirectory) {
-            fatalError()
+            throw ClearError.doesNotExist
         }
         if !isDirectory.boolValue {
-            fatalError()
+            throw ClearError.notADirectory
         }
 
-        let paths: [String]
-        do {
-            paths = try contentsOfDirectory(atPath: path)
-        } catch {
-            print("\(#function) error: \((error as NSError).localizedDescription)")
-            return
-        }
-        for p in paths {
-            try? removeItem(atPath: path + "/" + p)
+        let contents = try contentsOfDirectory(atPath: path)
+        for item in contents {
+            try removeItem(atPath: path + "/" + item)
         }
     }
 }

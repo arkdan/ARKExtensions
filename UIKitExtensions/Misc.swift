@@ -1,6 +1,6 @@
 //
 //  Misc.swift
-//  ARKExtensions
+//  UIKitExtensions
 //
 //  Created by ark dan on 11/16/16.
 //  Copyright © 2016 arkdan. All rights reserved.
