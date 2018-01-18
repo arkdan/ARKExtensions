@@ -10,7 +10,7 @@ import UIKit
 
 open class NibView: UIView {
 
-    @IBOutlet private weak var contentView: UIView!
+    @IBOutlet public weak var contentView: UIView!
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
