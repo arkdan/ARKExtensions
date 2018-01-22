@@ -12,6 +12,8 @@ open class NibView: UIView {
 
     @IBOutlet public weak var contentView: UIView!
 
+    public var setupClosure: (() -> Void)?
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
         nibInit()
@@ -26,5 +28,11 @@ open class NibView: UIView {
         Bundle.main.loadNibNamed(type(of: self).identifier, owner: self, options: nil)
         addSubview(contentView)
         pin(subview: contentView)
+
+        setup()
+        setupClosure?()
+    }
+
+    open func setup() {
     }
 }
