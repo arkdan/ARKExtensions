@@ -15,6 +15,7 @@
 		04348C25200C136A00BBCF10 /* OptionSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04348C23200C136900BBCF10 /* OptionSetTests.swift */; };
 		04348C27200C13F400BBCF10 /* SortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04348C26200C13F400BBCF10 /* SortTests.swift */; };
 		04348C28200C13F400BBCF10 /* SortTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04348C26200C13F400BBCF10 /* SortTests.swift */; };
+		0435E9EE201907B8001B26B3 /* GridCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435E9ED201907B8001B26B3 /* GridCollectionLayout.swift */; };
 		048996C020000B2B00A29FCD /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048996BF20000B2B00A29FCD /* UIImage+.swift */; };
 		048996C220000BC100A29FCD /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048996C120000BC100A29FCD /* NibView.swift */; };
 		048996C420000BEE00A29FCD /* UIStoryboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048996C320000BEE00A29FCD /* UIStoryboard+.swift */; };
@@ -147,6 +148,7 @@
 		04348C21200C12D400BBCF10 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = UIKitExtensionsTests/Nimble.framework; sourceTree = "<group>"; };
 		04348C23200C136900BBCF10 /* OptionSetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionSetTests.swift; sourceTree = "<group>"; };
 		04348C26200C13F400BBCF10 /* SortTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortTests.swift; sourceTree = "<group>"; };
+		0435E9ED201907B8001B26B3 /* GridCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionLayout.swift; sourceTree = "<group>"; };
 		048996BF20000B2B00A29FCD /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		048996C120000BC100A29FCD /* NibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 		048996C320000BEE00A29FCD /* UIStoryboard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+.swift"; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				04CF4D071FFCFB1F0077128E /* CGSize+.swift */,
 				041C708A1F5936BA00D7CE5D /* ConfiguredCell.swift */,
 				210B7CE11F1A87CC00B7C878 /* Constraints.swift */,
+				0435E9ED201907B8001B26B3 /* GridCollectionLayout.swift */,
 				210B7CE21F1A87CC00B7C878 /* Misc.swift */,
 				048996C120000BC100A29FCD /* NibView.swift */,
 				04CF4D061FFCFB1F0077128E /* TapAction.swift */,
@@ -716,6 +719,7 @@
 				041C708B1F5936BA00D7CE5D /* ConfiguredCell.swift in Sources */,
 				04CF4D0A1FFCFB1F0077128E /* UIBarButton+.swift in Sources */,
 				048996C420000BEE00A29FCD /* UIStoryboard+.swift in Sources */,
+				0435E9EE201907B8001B26B3 /* GridCollectionLayout.swift in Sources */,
 				210B7CE91F1A87CC00B7C878 /* UIViewController+AlertController.swift in Sources */,
 				048996C220000BC100A29FCD /* NibView.swift in Sources */,
 				04CF4D091FFCFB1F0077128E /* UITextView+.swift in Sources */,
