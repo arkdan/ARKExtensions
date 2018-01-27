@@ -53,6 +53,7 @@ extension UIViewController {
 
     /// Presented form window's rootViewController.
     /// Does nothing if no rootViewController
+    /// Returns UIAlertController; or nil if no rootViewController
     @discardableResult
     public class func presentAlert(title: String?, message: String?, cancelButtonTitle: String, otherButtonTitles:[String]? = nil, handler:((Int) -> ())? = nil) -> UIAlertController? {
 
@@ -69,8 +70,9 @@ extension UIViewController {
     /// - Parameters:
     ///   - handler: callback when user taps either button (including Cancel).
     /// buttonIndex == 0 corresponds to Cancel; buttonIndex == 1 - first button from otherButtonTitles
+    /// - Returns: responsible UIAlertController; or nil if no rootViewController
     @discardableResult
-    public func presentAlert(title: String?, message: String?, cancelButtonTitle: String, otherButtonTitles: [String]?, handler: ((Int) -> ())?) -> UIAlertController {
+    public func presentAlert(title: String?, message: String?, cancelButtonTitle: String, otherButtonTitles: [String]? = nil, handler: ((Int) -> ())? = nil) -> UIAlertController {
 
         let presentation: (UIAlertController) -> Void = { [weak self] alert in
             self?.present(alert, animated: true, completion: nil)
