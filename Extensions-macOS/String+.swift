@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     public var nsRange: NSRange {
-        return NSRange(location: 0, length: characters.count)
+        return NSRange(location: 0, length: count)
     }
 
     public func index(at offset: Int) -> Index {
@@ -18,19 +18,31 @@ extension String {
     }
 
     public func substring(from: Int) -> String {
-        let fromIndex = index(at: from)
-        return substring(from: fromIndex)
+        return String(self[from...])
     }
 
     public func substring(to: Int) -> String {
-        let toIndex = index(at: to)
-        return substring(to: toIndex)
+        return String(self[..<to])
     }
 
     public func substring(with range: Range<Int>) -> String {
+        return String(self[range])
+    }
+
+    public subscript(from: CountablePartialRangeFrom<Int>) -> Substring {
+        let fromIndex = index(at: from.lowerBound)
+        return self[fromIndex...]
+    }
+
+    public subscript(to: PartialRangeUpTo<Int>) -> Substring {
+        let toIndex = index(at: to.upperBound)
+        return self[..<toIndex]
+    }
+
+    public subscript(range: Range<Int>) -> Substring {
         let startIndex = index(at: range.lowerBound)
         let endIndex = index(at: range.upperBound)
-        return substring(with: startIndex..<endIndex)
+        return self[startIndex..<endIndex]
     }
 }
 
@@ -45,8 +57,7 @@ extension String {
     public func isPassingRegex(_ pattern: String) -> Bool {
         guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else { return false }
 
-        let range = NSRange(location: 0, length: self.characters.count)
-        return regex.firstMatch(in: self, options: [], range: range) != nil
+        return regex.firstMatch(in: self, options: [], range: self.nsRange) != nil
     }
 }
 

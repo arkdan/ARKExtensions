@@ -13,6 +13,10 @@ extension CGRect {
     public static func withSize(_ size: CGSize) -> CGRect {
         return CGRect(origin: .zero, size: size)
     }
+
+    public static func withSize(_ w: CGFloatConvertible, _ h: CGFloatConvertible) -> CGRect {
+        return CGRect(origin: .zero, size: CGSize(w, h))
+    }
 }
 
 extension CGSize {

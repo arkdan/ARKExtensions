@@ -17,6 +17,10 @@ open class GridCollectionLayout: UICollectionViewFlowLayout {
         didSet { invalidate() }
     }
 
+    public var itemAspectRatio: CGFloat = 1 {
+        didSet { invalidate() }
+    }
+
     private func invalidate() {
         invalidateLayout()
         collectionView?.invalidateIntrinsicContentSize()
@@ -25,7 +29,8 @@ open class GridCollectionLayout: UICollectionViewFlowLayout {
     override open var itemSize: CGSize {
         get {
             let width = columnWidth()
-            return CGSize(width, width)
+            let height = width / itemAspectRatio
+            return CGSize(width, height)
         }
         set {
         }

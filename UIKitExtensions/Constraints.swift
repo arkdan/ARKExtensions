@@ -128,3 +128,10 @@ extension UIView {
         return constraints
     }
 }
+
+extension UIView {
+    public func pin(subview: UIView, _ constant: CGFloatConvertible = 0) {
+        constraint(.top, .bottom, .leading, .trailing, subview: subview, constant.cgFloat)
+    }
+}
+

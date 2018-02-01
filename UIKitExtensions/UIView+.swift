@@ -11,9 +11,10 @@ import UIKit
 
 extension UIView {
 
-    public func snapshot() -> UIImage {
+    public func snapshot() -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(frame.size, false, UIScreen.main.scale)
-        layer.render(in: UIGraphicsGetCurrentContext()!)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        layer.render(in: context)
         let image = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return image
@@ -37,11 +38,6 @@ extension UIView {
     }
 }
 
-extension UIView {
-    public func pin(subview: UIView) {
-        constraint(.top, .bottom, .leading, .trailing, subview: subview)
-    }
-}
 
 extension UIView {
     public class var identifier: String {

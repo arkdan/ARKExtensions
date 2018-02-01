@@ -8,31 +8,64 @@
 
 import UIKit
 
-open class NibView: UIView {
+open class HookedView: UIView {
 
-    @IBOutlet public weak var contentView: UIView!
-
-    public var setupClosure: (() -> Void)?
+    open var setupClosure: ((UIView) -> Void)?
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        nibInit()
+        initSetup()
     }
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        nibInit()
+        initSetup()
     }
 
-    private func nibInit() {
-        Bundle.main.loadNibNamed(type(of: self).identifier, owner: self, options: nil)
-        addSubview(contentView)
-        pin(subview: contentView)
-
+    private func initSetup() {
         setup()
-        setupClosure?()
+        setupClosure?(self)
     }
 
     open func setup() {
+    }
+}
+
+open class HookedCollectionCell: UICollectionViewCell {
+
+    open var setupClosure: ((UIView) -> Void)?
+
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        initSetup()
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initSetup()
+    }
+
+    private func initSetup() {
+        setup()
+        setupClosure?(self)
+    }
+
+    open func setup() {
+    }
+}
+
+open class NibView: HookedView {
+
+    @IBOutlet public weak var contentView: UIView!
+
+    open var nibName: String {
+        return type(of: self).identifier
+    }
+
+    override open func setup() {
+        super.setup()
+        Bundle.main.loadNibNamed(nibName, owner: self, options: nil)
+        addSubview(contentView)
+        pin(subview: contentView)
     }
 }
