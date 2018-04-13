@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class HookedView: UIView {
+open class SetupView: UIView {
 
     open var setupClosure: ((UIView) -> Void)?
 
@@ -31,30 +31,39 @@ open class HookedView: UIView {
     }
 }
 
-open class HookedCollectionCell: UICollectionViewCell {
-
-    open var setupClosure: ((UIView) -> Void)?
+open class SetupCollectionCell: UICollectionViewCell {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        initSetup()
+        setup()
     }
 
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        initSetup()
-    }
-
-    private func initSetup() {
         setup()
-        setupClosure?(self)
     }
 
     open func setup() {
     }
 }
 
-open class NibView: HookedView {
+open class SetupTableCell: UITableViewCell {
+
+    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setup()
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+
+    open func setup() {
+    }
+}
+
+open class NibView: SetupView {
 
     @IBOutlet public weak var contentView: UIView!
 
