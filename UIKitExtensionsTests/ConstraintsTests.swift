@@ -116,6 +116,33 @@ class ConstraintsTests: XCTestCase {
         expect(subview2.frame) == CGRect(x: 50 + 100 + 20, y: 50, width: 20, height: 20)
     }
 
+    func testPinSibblings() {
+        let subview1 = UIView(frame: .zero)
+        let subview2 = UIView(frame: .zero)
+
+        superview.addSubview(subview1)
+        superview.addSubview(subview2)
+
+
+        subview1.constraint(.width, 100)
+        subview1.constraint(.height, 100)
+        superview.constraint(.leading, .top, subview: subview1, 50)
+
+        subview2.pin(toSibling: subview1, 10)
+
+        superview.layoutSubviews()
+
+        let expS1Frame = CGRect(x: 50, y: 50, width: 100, height: 100)
+        var expS2Frame = expS1Frame
+        expS2Frame.origin.x -= 10
+        expS2Frame.origin.y -= 10
+        expS2Frame.size.width += 20
+        expS2Frame.size.height += 20
+
+        expect(subview1.frame) == expS1Frame
+        expect(subview2.frame) == expS2Frame
+    }
+
     func testAssociatedConstraints() {
         let subview1 = UIView(frame: .zero)
         let subview2 = UIView(frame: .zero)

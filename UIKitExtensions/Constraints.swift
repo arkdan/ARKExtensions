@@ -133,5 +133,13 @@ extension UIView {
     public func pin(subview: UIView, _ constant: CGFloatConvertible = 0) {
         constraint(.top, .bottom, .leading, .trailing, subview: subview, constant.cgFloat)
     }
+
+    public func pin(toSibling sibling: UIView, _ constant: CGFloatConvertible = 0) {
+
+        constraint(.top, to: .top, ofSibling: sibling, constant: constant.cgFloat)
+        constraint(.bottom, to: .bottom, ofSibling: sibling, constant: constant.cgFloat)
+        constraint(.leading, to: .leading, ofSibling: sibling, constant: constant.cgFloat)
+        constraint(.trailing, to: .trailing, ofSibling: sibling, constant: constant.cgFloat)
+    }
 }
 
