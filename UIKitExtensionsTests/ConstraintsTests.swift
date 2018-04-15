@@ -128,7 +128,7 @@ class ConstraintsTests: XCTestCase {
         subview1.constraint(.height, 100)
         superview.constraint(.leading, .top, subview: subview1, 50)
 
-        subview2.pin(toSibling: subview1, 10)
+        subview2.pin(toSibling: subview1, -10)
 
         superview.layoutSubviews()
 
