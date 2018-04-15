@@ -46,7 +46,7 @@ public final class WeakObjectSet<T: AnyObject> where T: Hashable {
     }
 
     public var allObjects: [T] {
-        return set.flatMap { $0.object }
+        return set.compactMap { $0.object }
     }
 
     public var isEmpty: Bool {
