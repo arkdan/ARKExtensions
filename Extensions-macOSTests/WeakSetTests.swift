@@ -84,6 +84,38 @@ class WeakSetTests: XCTestCase {
         pointer = nil
         expect(weakSet.isEmpty) == true
     }
+
+    func testCleanup() {
+        let a: Listener? = Listener(name: "aaa")
+        let b: Listener? = Listener(name: "bbb")
+        let c: Listener? = Listener(name: "ccc")
+        var d: Listener? = Listener(name: "ddd")
+        var e: Listener? = Listener(name: "eee")
+        var f: Listener? = Listener(name: "fff")
+
+        let weakSet = WeakObjectSet<Listener>()
+        expect(weakSet.allObjects) == []
+
+        weakSet.add(d!)
+        weakSet.add(f!)
+        weakSet.add(e!)
+        weakSet.add(b!)
+        weakSet.add(c!)
+        weakSet.add(a!)
+
+        weakSet.add(f!)
+        weakSet.add(e!)
+        weakSet.add(b!)
+        weakSet.add(c!)
+
+        expect(weakSet.allObjects.sorted()) == [a!, b!, c!, d!, e!, f!]
+
+        e = nil
+        f = nil
+        d = nil
+
+        expect(weakSet.allObjects.sorted()) == [a!, b!, c!]
+    }
 }
 
 final class Listener {

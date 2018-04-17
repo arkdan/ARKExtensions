@@ -8,12 +8,16 @@
 
 import Foundation
 
-final private class WeakObject<T: AnyObject>: Equatable, Hashable where T: Hashable {
+private struct WeakBox<T: AnyObject>: Equatable, Hashable where T: Hashable {
 
     weak var object: T?
 
-    init(_ object: T, _ containingSet: WeakObjectSet<T>? = nil) {
+    init(_ object: T) {
         self.object = object
+    }
+
+    var isEmpty: Bool {
+        return object == nil
     }
 
     var hashValue: Int {
@@ -23,7 +27,7 @@ final private class WeakObject<T: AnyObject>: Equatable, Hashable where T: Hasha
         return 0
     }
 
-    static func == (lhs: WeakObject<T>, rhs: WeakObject<T>) -> Bool {
+    static func ==(lhs: WeakBox<T>, rhs: WeakBox<T>) -> Bool {
         return lhs.object === rhs.object
     }
 }
@@ -31,22 +35,23 @@ final private class WeakObject<T: AnyObject>: Equatable, Hashable where T: Hasha
 
 public final class WeakObjectSet<T: AnyObject> where T: Hashable {
 
-    fileprivate var set: Set<WeakObject<T>>
+    fileprivate var set: Set<WeakBox<T>>
 
     public init() {
-        self.set = Set<WeakObject<T>>([])
+        self.set = Set<WeakBox<T>>([])
     }
 
     public init(_ objects: [T]) {
-        self.set = Set<WeakObject<T>>(objects.map { WeakObject($0) })
+        self.set = Set<WeakBox<T>>(objects.map { WeakBox($0) })
     }
 
     public init(_ objects: Set<T>) {
-        self.set = Set<WeakObject<T>>(objects.map { WeakObject($0) })
+        self.set = Set<WeakBox<T>>(objects.map { WeakBox($0) })
     }
 
     public var allObjects: [T] {
-        return set.compactMap { $0.object }
+        trimEmpty()
+        return set.map { $0.object! }
     }
 
     public var isEmpty: Bool {
@@ -54,20 +59,13 @@ public final class WeakObjectSet<T: AnyObject> where T: Hashable {
     }
 
     public func contains(_ object: T) -> Bool {
-        return set.contains(WeakObject(object))
+        return set.contains(WeakBox(object))
     }
 
     public func add(_ object: T) {
 
-        // reuse WeakObjects already in the set, whose objects have already been deallocated.
-        // Otherwise allocate a new WeakObject with object.
-        // That makes sense, thanks for clarity.
-        if let index = set.index(where: { $0.object == nil }) {
-            let weakObject = set[index]
-            weakObject.object = object
-        } else {
-            set.insert(WeakObject(object))
-        }
+        trimEmpty()
+        set.insert(WeakBox(object))
     }
 
     public func add(_ objects: [T]) {
@@ -75,6 +73,18 @@ public final class WeakObjectSet<T: AnyObject> where T: Hashable {
     }
 
     public func remove(_ object: T) {
-        set.remove(WeakObject(object))
+        set.remove(WeakBox(object))
+    }
+
+    // Deletes boxes whose objects are released
+    private func trimEmpty() {
+        var done = false
+        repeat {
+            if let index = set.index(where: { $0.isEmpty }) {
+                set.remove(at: index)
+            } else {
+                done = true
+            }
+        } while done == false
     }
 }
