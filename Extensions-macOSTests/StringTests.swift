@@ -72,4 +72,21 @@ class StringTests: XCTestCase {
         string = "132ghfhgfghf@12313.n nn"
         expect(string.isValidEmail()) == false
     }
+
+    func testTrimming() {
+
+        let s = "A0000A"
+
+        var trimmed = s.trimming("A")
+        expect(trimmed) == "0000"
+
+        trimmed = s.trimming("u")
+        expect(trimmed) == "A0000A"
+
+        trimmed = s.trimming("a")
+        expect(trimmed) == "A0000A"
+
+        trimmed = s.trimming("A0")
+        expect(trimmed) == "000A"
+    }
 }

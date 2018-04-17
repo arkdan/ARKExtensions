@@ -61,4 +61,9 @@ extension String {
     }
 }
 
+extension String {
+    public func trimming(_ string: String) -> String {
+        return replacingOccurrences(of: string, with: "")
+    }
+}
 

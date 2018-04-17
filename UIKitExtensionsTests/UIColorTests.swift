@@ -22,12 +22,20 @@ class UIColorTests: XCTestCase {
         expect(color) == UIColor.brown
     }
 
-    func testHex() {
+    func testHexString() {
         let magentaHex = 0xFF00FF
+        var hexString = "FF00FF"
         expect(UIColor.magenta.hex()) == magentaHex
 
-        let color = UIColor(hex: magentaHex)
+        var color = UIColor(hexString: hexString)
+
         expect(color) == UIColor.magenta
+        expect(color.hexString()) == "FF00FF"
+
+        hexString = "#" + hexString
+        color = UIColor(hexString: hexString)
+        expect(color) == UIColor.magenta
+        expect(color.hexString()) == "FF00FF"
     }
 
 }

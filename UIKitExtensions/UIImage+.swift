@@ -53,7 +53,7 @@ extension UIImage {
         return scaledImage
     }
 
-    public static func with(_ color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+    public static func with(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
         let rect = CGRect(origin: .zero, size: size)
         UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
         color.setFill()

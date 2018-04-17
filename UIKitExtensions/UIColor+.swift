@@ -50,7 +50,9 @@ extension UIColor {
 
     // MARK: -
 
-    public convenience init(hex: Int, alpha: Double = 1) {
+    public convenience init(hexString: String, alpha: Double = 1) {
+        let string = hexString.trimming("#")
+        let hex = strtol(string, nil, 16)
         self.init(red255: hex.red, green: hex.green, blue: hex.blue)
     }
 
@@ -61,6 +63,17 @@ extension UIColor {
 
         getRed(&r, green: &g, blue: &b, alpha: nil)
         return Int(r * 255) << 16 | Int(g * 255) << 8 | Int(b * 255) << 0
+    }
+
+    public func hexString() -> String {
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
+
+        getRed(&r, green: &g, blue: &b, alpha: nil)
+        let hex = Int(r * 255) << 16 | Int(g * 255) << 8 | Int(b * 255) << 0
+
+        return String(hex, radix: 16, uppercase: true)
     }
 }
 
