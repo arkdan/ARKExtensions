@@ -85,6 +85,29 @@ class WeakSetTests: XCTestCase {
         expect(weakSet.isEmpty) == true
     }
 
+    func testOrdered() {
+        let a: Listener? = Listener(name: "aaa")
+        let b: Listener? = Listener(name: "bbb")
+        var c: Listener? = Listener(name: "ccc")
+        var d: Listener? = Listener(name: "ddd")
+        let e: Listener? = Listener(name: "eee")
+        let f: Listener? = Listener(name: "fff")
+
+        let weakSet = WeakObjectSet([f!, e!, d!, c!, b!, a!])
+
+        expect(weakSet.ordered) == [f!, e!, d!, c!, b!, a!]
+
+        c = nil
+        d = nil
+
+        expect(weakSet.ordered) == [f!, e!, b!, a!]
+
+        let last = weakSet.ordered.last!
+        weakSet.remove(last)
+
+        expect(weakSet.ordered) == [f!, e!, b!]
+    }
+
     func testCleanup() {
         let a: Listener? = Listener(name: "aaa")
         let b: Listener? = Listener(name: "bbb")
@@ -93,20 +116,9 @@ class WeakSetTests: XCTestCase {
         var e: Listener? = Listener(name: "eee")
         var f: Listener? = Listener(name: "fff")
 
-        let weakSet = WeakObjectSet<Listener>()
-        expect(weakSet.allObjects) == []
+        let weakSet = WeakObjectSet([d!, f!, e!, b!,  c!, a!,         f!, e!, b!, c!])
+        weakSet.add([f!, e!, b!, c!])
 
-        weakSet.add(d!)
-        weakSet.add(f!)
-        weakSet.add(e!)
-        weakSet.add(b!)
-        weakSet.add(c!)
-        weakSet.add(a!)
-
-        weakSet.add(f!)
-        weakSet.add(e!)
-        weakSet.add(b!)
-        weakSet.add(c!)
 
         expect(weakSet.allObjects.sorted()) == [a!, b!, c!, d!, e!, f!]
 

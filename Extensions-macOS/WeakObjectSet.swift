@@ -11,6 +11,7 @@ import Foundation
 private struct WeakBox<T: AnyObject>: Equatable, Hashable where T: Hashable {
 
     weak var object: T?
+    var order: Int?
 
     init(_ object: T) {
         self.object = object
@@ -35,23 +36,44 @@ private struct WeakBox<T: AnyObject>: Equatable, Hashable where T: Hashable {
 
 public final class WeakObjectSet<T: AnyObject> where T: Hashable {
 
-    fileprivate var set: Set<WeakBox<T>>
+    private var set: Set<WeakBox<T>>
+
+    private var order = 0
 
     public init() {
         self.set = Set<WeakBox<T>>([])
     }
 
     public init(_ objects: [T]) {
-        self.set = Set<WeakBox<T>>(objects.map { WeakBox($0) })
+        var order = 0
+        self.set = Set<WeakBox<T>>(objects.map {
+            var box = WeakBox($0)
+            box.order = order
+            order += 1
+            return box
+        })
+        self.order = order
     }
 
     public init(_ objects: Set<T>) {
-        self.set = Set<WeakBox<T>>(objects.map { WeakBox($0) })
+        var order = 0
+        self.set = Set<WeakBox<T>>(objects.map {
+            var box = WeakBox($0)
+            box.order = order
+            order += 1
+            return box
+        })
+        self.order = order
     }
 
     public var allObjects: [T] {
-        trimEmpty()
+        dropEmpty()
         return set.map { $0.object! }
+    }
+
+    public var ordered: [T] {
+        dropEmpty()
+        return set.sorted { $0.order < $1.order } .map { $0.object! }
     }
 
     public var isEmpty: Bool {
@@ -64,12 +86,22 @@ public final class WeakObjectSet<T: AnyObject> where T: Hashable {
 
     public func add(_ object: T) {
 
-        trimEmpty()
-        set.insert(WeakBox(object))
+        dropEmpty()
+        var box = WeakBox(object)
+        incrementOrder(with: &box)
+        set.insert(box)
     }
 
     public func add(_ objects: [T]) {
-        objects.forEach { self.add($0) }
+
+        dropEmpty()
+
+        let add: (T) -> Void = { object in
+            var box = WeakBox(object)
+            self.incrementOrder(with: &box)
+            self.set.insert(box)
+        }
+        objects.forEach { add($0) }
     }
 
     public func remove(_ object: T) {
@@ -77,7 +109,7 @@ public final class WeakObjectSet<T: AnyObject> where T: Hashable {
     }
 
     // Deletes boxes whose objects are released
-    private func trimEmpty() {
+    private func dropEmpty() {
         var done = false
         repeat {
             if let index = set.index(where: { $0.isEmpty }) {
@@ -86,5 +118,10 @@ public final class WeakObjectSet<T: AnyObject> where T: Hashable {
                 done = true
             }
         } while done == false
+    }
+
+    private func incrementOrder(with object: inout WeakBox<T>) {
+        object.order = order
+        order += 1
     }
 }
