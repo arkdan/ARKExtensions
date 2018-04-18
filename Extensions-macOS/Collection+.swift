@@ -99,6 +99,10 @@ extension Array {
         return copy
     }
 
+    public func firstWhere(_ predicate: (Element) throws -> Bool) rethrows -> Element? {
+        return try first(where: predicate)
+    }
+
 }
 
 
