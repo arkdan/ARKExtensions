@@ -93,8 +93,16 @@ extension UIView {
 
 extension UIView {
 
-    var widthConstraint: NSLayoutConstraint? {
-        return constraints.first { $0.firstItem as! NSLayoutConstraint == self }
+    public var widthConstraint: NSLayoutConstraint? {
+        return constraint(forAttribute: .width)
+    }
+
+    public var heightConstraint: NSLayoutConstraint? {
+        return constraint(forAttribute: .height)
+    }
+
+    public func constraint(forAttribute attribute: NSLayoutAttribute) -> NSLayoutConstraint? {
+        return constraints.first(where: { $0.firstAttribute == attribute })
     }
 
     @discardableResult
