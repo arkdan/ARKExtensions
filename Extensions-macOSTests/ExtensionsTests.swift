@@ -30,28 +30,46 @@ class ExtensionsTests: XCTestCase {
     }
 
     func testRandom() {
-        let i = 5
-        let exps = (0..<i).map { self.expectation(description: "\($0)") }
-        exps.forEach { $0.assertForOverFulfill = false }
+
+        var count = 2
+        var expected: Set<Int> = Set([0, 1])
+        var values = Set<Int>()
 
         for _ in 0..<100 {
-            if i.random() == 0 {
-                exps[0].fulfill()
-            }
-            if i.random() == 1 {
-                exps[1].fulfill()
-            }
-            if i.random() == 2 {
-                exps[2].fulfill()
-            }
-            if i.random() == 3 {
-                exps[3].fulfill()
-            }
-            if i.random() == 4 {
-                exps[4].fulfill()
-            }
+            let randomValue = count.random() // 2.random()
+            values.insert(randomValue)
         }
-        waitForExpectations(timeout: 0.1, handler: nil)
+        expect(values) == expected
+
+        count = 5
+        expected = Set([0, 1, 2, 3, 4])
+        values = Set<Int>()
+
+        for _ in 0..<100 {
+            let randomValue = count.random() // 5.random()
+            values.insert(randomValue)
+        }
+        expect(values) == expected
+
+        count = 1
+        expected = Set([0])
+        values = Set<Int>()
+
+        for _ in 0..<100 {
+            let randomValue = count.random() // 1.random()
+            values.insert(randomValue)
+        }
+        expect(values) == expected
+
+        count = 0
+        expected = Set([0])
+        values = Set<Int>()
+
+        for _ in 0..<100 {
+            let randomValue = count.random() // 0.random()
+            values.insert(randomValue)
+        }
+        expect(values) == expected
     }
 
     func testArrayContains() {
