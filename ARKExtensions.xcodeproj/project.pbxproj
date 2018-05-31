@@ -83,6 +83,7 @@
 		210B7D091F1A8A2800B7C878 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 210B7CEA1F1A887600B7C878 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		210B7D0D1F1A8A4C00B7C878 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 210B7D011F1A890700B7C878 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		210B7D0E1F1A8C7400B7C878 /* Extensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210B7C4D1F1A77A500B7C878 /* Extensions.framework */; };
+		6B2264B420C0947B005E7B20 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210B7CEA1F1A887600B7C878 /* Nimble.framework */; };
 		6B3BA66E2086B29D00D83C47 /* Optional+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BA66D2086B29D00D83C47 /* Optional+.swift */; };
 		6B3BA66F2086B29D00D83C47 /* Optional+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BA66D2086B29D00D83C47 /* Optional+.swift */; };
 		6B3BA6742086B32A00D83C47 /* OptionalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3BA6732086B32A00D83C47 /* OptionalTests.swift */; };
@@ -243,6 +244,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B2264B420C0947B005E7B20 /* Nimble.framework in Frameworks */,
 				04348C20200C128100BBCF10 /* Nimble.framework in Frameworks */,
 				210B7C561F1A77A600B7C878 /* Extensions.framework in Frameworks */,
 			);
@@ -884,6 +886,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Extensions-macOSTests",
+				);
 				INFOPLIST_FILE = "Extension-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -908,6 +914,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Extensions-macOSTests",
+				);
 				INFOPLIST_FILE = "Extension-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -932,6 +942,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UIKitExtensionsTests",
+					"$(PROJECT_DIR)/Extensions-macOSTests",
 				);
 				INFOPLIST_FILE = "Extension-iOSTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -953,6 +964,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/UIKitExtensionsTests",
+					"$(PROJECT_DIR)/Extensions-macOSTests",
 				);
 				INFOPLIST_FILE = "Extension-iOSTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
