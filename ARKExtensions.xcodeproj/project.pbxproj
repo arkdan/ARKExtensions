@@ -91,6 +91,7 @@
 		6B87652F207F38AD00949763 /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B87652E207F38AD00949763 /* DateFormatter+.swift */; };
 		6B876530207F38AD00949763 /* DateFormatter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B87652E207F38AD00949763 /* DateFormatter+.swift */; };
 		6BAF93DC2099B03300164B3A /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAF93DB2099B03300164B3A /* UIViewController+.swift */; };
+		6BE8CD1920D5FCC400F67B7B /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE8CD1820D5FCC300F67B7B /* ContainerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -214,6 +215,7 @@
 		6B3BA6732086B32A00D83C47 /* OptionalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalTests.swift; sourceTree = "<group>"; };
 		6B87652E207F38AD00949763 /* DateFormatter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+.swift"; sourceTree = "<group>"; };
 		6BAF93DB2099B03300164B3A /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		6BE8CD1820D5FCC300F67B7B /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,6 +346,7 @@
 				04CF4D071FFCFB1F0077128E /* CGSize+.swift */,
 				041C708A1F5936BA00D7CE5D /* ConfiguredCell.swift */,
 				210B7CE11F1A87CC00B7C878 /* Constraints.swift */,
+				6BE8CD1820D5FCC300F67B7B /* ContainerViewController.swift */,
 				0435E9ED201907B8001B26B3 /* GridCollectionLayout.swift */,
 				210B7CE21F1A87CC00B7C878 /* Misc.swift */,
 				048996C120000BC100A29FCD /* NibView.swift */,
@@ -747,6 +750,7 @@
 				048996C220000BC100A29FCD /* NibView.swift in Sources */,
 				04CF4D091FFCFB1F0077128E /* UITextView+.swift in Sources */,
 				04CF4D0B1FFCFB1F0077128E /* TapAction.swift in Sources */,
+				6BE8CD1920D5FCC400F67B7B /* ContainerViewController.swift in Sources */,
 				04CF4D081FFCFB1F0077128E /* UIView+.swift in Sources */,
 				048996C020000B2B00A29FCD /* UIImage+.swift in Sources */,
 				6BAF93DC2099B03300164B3A /* UIViewController+.swift in Sources */,
