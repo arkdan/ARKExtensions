@@ -38,9 +38,18 @@ open class SetupCollectionCell: UICollectionViewCell {
         setup()
     }
 
+    // UICollectionViewCell outlets are still nil on init(coder: ). We need to call setup() on awakeFromNib
+    private var shouldSetupOnAwakeFromNib = false
     public required init?(coder aDecoder: NSCoder) {
+        shouldSetupOnAwakeFromNib = true
         super.init(coder: aDecoder)
-        setup()
+    }
+
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+        if shouldSetupOnAwakeFromNib {
+            setup()
+        }
     }
 
     open func setup() {
