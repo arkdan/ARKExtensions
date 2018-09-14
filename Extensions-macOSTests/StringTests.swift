@@ -71,6 +71,9 @@ class StringTests: XCTestCase {
 
         string = "132ghfhgfghf@12313.n nn"
         expect(string.isValidEmail()) == false
+
+        string = "AAASSSDDD@email.nnn"
+        expect(string.isValidEmail()) == true
     }
 
     func testTrimming() {

@@ -54,8 +54,8 @@ extension String {
         return isPassingRegex(pattern)
     }
 
-    public func isPassingRegex(_ pattern: String) -> Bool {
-        guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else { return false }
+    public func isPassingRegex(_ pattern: String, options: NSRegularExpression.Options = []) -> Bool {
+        guard let regex = try? NSRegularExpression(pattern: pattern, options: options) else { return false }
 
         return regex.firstMatch(in: self, options: [], range: self.nsRange) != nil
     }
