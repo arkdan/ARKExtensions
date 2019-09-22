@@ -12,7 +12,7 @@ import UIKit
 extension UIView {
 
     @discardableResult
-    public func constraint(_ attributes: NSLayoutAttribute..., subview: UIView, _ constant: CGFloat = 0) -> [NSLayoutConstraint] {
+    public func constraint(_ attributes: NSLayoutConstraint.Attribute..., subview: UIView, _ constant: CGFloat = 0) -> [NSLayoutConstraint] {
 
         assert(subview.superview === self)
         subview.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +44,7 @@ extension UIView {
     }
 
     @discardableResult
-    public func constraint(_ attribute: NSLayoutAttribute, _ constant: CGFloat) -> NSLayoutConstraint {
+    public func constraint(_ attribute: NSLayoutConstraint.Attribute, _ constant: CGFloat) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
 
         switch attribute {
@@ -65,7 +65,7 @@ extension UIView {
     }
 
     @discardableResult
-    public func constraint(_ attribute: NSLayoutAttribute, to siblingAttribute: NSLayoutAttribute, ofSibling sibling: UIView, constant: CGFloat = 0) -> NSLayoutConstraint {
+    public func constraint(_ attribute: NSLayoutConstraint.Attribute, to siblingAttribute: NSLayoutConstraint.Attribute, ofSibling sibling: UIView, constant: CGFloat = 0) -> NSLayoutConstraint {
 
         assert(superview === sibling.superview, "siblings must have same superview!")
         translatesAutoresizingMaskIntoConstraints = false
@@ -101,7 +101,7 @@ extension UIView {
         return constraint(forAttribute: .height)
     }
 
-    public func constraint(forAttribute attribute: NSLayoutAttribute) -> NSLayoutConstraint? {
+    public func constraint(forAttribute attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
         return constraints.first(where: { $0.firstAttribute == attribute })
     }
 

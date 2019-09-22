@@ -19,7 +19,7 @@ extension UIBarButtonItem {
         tapAction = action
     }
 
-    public convenience init(_ barButtonSystemItem: UIBarButtonSystemItem, action: @escaping (UIBarButtonItem) -> Void) {
+    public convenience init(_ barButtonSystemItem: UIBarButtonItem.SystemItem, action: @escaping (UIBarButtonItem) -> Void) {
         self.init(barButtonSystemItem: barButtonSystemItem, target: nil, action: nil)
         tapAction = action
     }

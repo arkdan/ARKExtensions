@@ -21,11 +21,14 @@ private struct WeakBox<T: AnyObject>: Equatable, Hashable where T: Hashable {
         return object == nil
     }
 
-    var hashValue: Int {
+    func hash(into hasher: inout Hasher) {
+        let hash: Int
         if let object = self.object {
-            return Unmanaged.passUnretained(object).toOpaque().hashValue
+            hash = Unmanaged.passUnretained(object).toOpaque().hashValue
+        } else {
+            hash = 0
         }
-        return 0
+        hasher.combine(hash)
     }
 
     static func ==(lhs: WeakBox<T>, rhs: WeakBox<T>) -> Bool {
@@ -112,7 +115,7 @@ public final class WeakObjectSet<T: AnyObject> where T: Hashable {
     private func dropEmpty() {
         var done = false
         repeat {
-            if let index = set.index(where: { $0.isEmpty }) {
+            if let index = set.firstIndex(where: { $0.isEmpty }) {
                 set.remove(at: index)
             } else {
                 done = true

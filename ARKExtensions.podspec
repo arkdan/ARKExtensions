@@ -25,19 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = "description"
-
   s.homepage     = "https://github.com/arkdan/ARKExtensions"
-  # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
-
-
-  # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Licensing your code is important. See http://choosealicense.com for more info.
-  #  CocoaPods will detect a license file if there is a named LICENSE*
-  #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
-  #
-
-  s.license      = "MIT (example)"
   s.license      = { :type => "MIT", :file => "LICENSE" }
 
 
@@ -51,10 +39,7 @@ Pod::Spec.new do |s|
   #  profile URL.
   #
 
-  s.author             = { "ark dan" => "email@address.com" }
-  # Or just: s.author    = "ark dan"
-  # s.authors            = { "ark dan" => "email@address.com" }
-  # s.social_media_url   = "http://twitter.com/ark dan"
+  s.author             = { "ark dan" }
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -63,13 +48,11 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+  # s.platform     = :ios, "10.0"
 
   #  When using multiple platforms
-  s.ios.deployment_target = "9.0"
-  s.osx.deployment_target = "10.12"
-  # s.watchos.deployment_target = "2.0"
-  # s.tvos.deployment_target = "9.0"
+  s.ios.deployment_target = "10.0"
+  s.osx.deployment_target = "10.11"
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -78,7 +61,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/arkdan/ARKExtensions.git", :commit => "e0c90a053b1f6b2a2f65361806032ff049026ddc" }
+  s.source = { :git => "https://github.com/arkdan/ARKExtensions.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -89,11 +72,11 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Extensions-iOS/*.{h,m,swift}", "Extensions-macOS/*.{h,m,swift}" "UIKitExtensions/*.{h,m,swift}"
-  # s.exclude_files = "Classes/Exclude"
-
-  # s.public_header_files = "Classes/**/*.h"
-
+  s.source_files = [
+    'Extension-iOS/*.{swift}',
+    'Extensions-macOS/*.{swift}',
+    'UIKitExtensions/*.{swift}'
+  ]
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #

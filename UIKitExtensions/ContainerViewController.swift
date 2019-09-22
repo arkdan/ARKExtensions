@@ -27,7 +27,7 @@ open class ContainerViewController: UIViewController {
     }
 
     open var selectedViewController: UIViewController? {
-        return childViewControllers.last
+        return children.last
     }
 
     override open func viewDidLoad() {
@@ -39,12 +39,12 @@ open class ContainerViewController: UIViewController {
 
         assert(viewControllers != nil && !viewControllers.isEmpty)
 
-        if childViewControllers.isEmpty {
+        if children.isEmpty {
             let viewController = viewControllers[selectedIndex]
-            viewController.willMove(toParentViewController: self)
-            addChildViewController(viewController)
+            viewController.willMove(toParent: self)
+            addChild(viewController)
             addView(viewController.view)
-            viewController.didMove(toParentViewController: self)
+            viewController.didMove(toParent: self)
         }
     }
 
@@ -57,8 +57,8 @@ open class ContainerViewController: UIViewController {
 
         let new = viewControllers[index]
 
-        addChildViewController(new)
-        new.willMove(toParentViewController: self)
+        addChild(new)
+        new.willMove(toParent: self)
 
         transition(from: current, to: new, duration: 0, options: [], animations: {
         }, completion: { completed in
@@ -66,8 +66,8 @@ open class ContainerViewController: UIViewController {
             current.view.removeFromSuperview()
             self.addView(new.view)
 
-            new.didMove(toParentViewController: self)
-            current.removeFromParentViewController()
+            new.didMove(toParent: self)
+            current.removeFromParent()
         })
     }
 
