@@ -9,13 +9,15 @@
 import Foundation
 
 
-public func onMain(_ closure: @escaping () -> Void) {
+public func onMain<T>(block: ()->T) -> T {
     if Thread.isMainThread {
-        closure()
+        return block()
     } else {
-        DispatchQueue.main.async {
-            closure()
+        var t: T!
+        DispatchQueue.main.sync {
+            t = block()
         }
+        return t
     }
 }
 

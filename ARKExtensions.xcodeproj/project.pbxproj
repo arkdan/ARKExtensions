@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		040DBE151F5828D300B38F00 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040DBE141F5828D300B38F00 /* UICollectionView+.swift */; };
+		041BB24C23E38CD500BA0E1E /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BB24B23E38CD500BA0E1E /* Property.swift */; };
+		041BB24D23E38CD500BA0E1E /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BB24B23E38CD500BA0E1E /* Property.swift */; };
+		041BB24F23E3907B00BA0E1E /* PropertyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BB24E23E3907B00BA0E1E /* PropertyTests.swift */; };
+		041BB25023E3907B00BA0E1E /* PropertyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041BB24E23E3907B00BA0E1E /* PropertyTests.swift */; };
 		041C708B1F5936BA00D7CE5D /* ConfiguredCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041C708A1F5936BA00D7CE5D /* ConfiguredCell.swift */; };
 		04348C20200C128100BBCF10 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 210B7D011F1A890700B7C878 /* Nimble.framework */; };
 		04348C22200C12D400BBCF10 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 04348C21200C12D400BBCF10 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -153,6 +157,8 @@
 
 /* Begin PBXFileReference section */
 		040DBE141F5828D300B38F00 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
+		041BB24B23E38CD500BA0E1E /* Property.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		041BB24E23E3907B00BA0E1E /* PropertyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyTests.swift; sourceTree = "<group>"; };
 		041C708A1F5936BA00D7CE5D /* ConfiguredCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfiguredCell.swift; sourceTree = "<group>"; };
 		04348C21200C12D400BBCF10 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = UIKitExtensionsTests/Nimble.framework; sourceTree = "<group>"; };
 		04348C23200C136900BBCF10 /* OptionSetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionSetTests.swift; sourceTree = "<group>"; };
@@ -298,6 +304,7 @@
 				04CF4D0F1FFCFC640077128E /* String+.swift */,
 				210B7C6B1F1A7A7F00B7C878 /* SynchronizedArray.swift */,
 				210B7C6C1F1A7A7F00B7C878 /* WeakObjectSet.swift */,
+				041BB24B23E38CD500BA0E1E /* Property.swift */,
 				210B7C341F1A74B000B7C878 /* Info.plist */,
 			);
 			path = "Extensions-macOS";
@@ -306,6 +313,7 @@
 		210B7C3D1F1A74B000B7C878 /* Extensions-macOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				041BB24E23E3907B00BA0E1E /* PropertyTests.swift */,
 				210B7CEA1F1A887600B7C878 /* Nimble.framework */,
 				210B7CEB1F1A887600B7C878 /* DispatchTimerTests.swift */,
 				210B7CEC1F1A887600B7C878 /* EnumerableTests.swift */,
@@ -663,6 +671,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041BB24C23E38CD500BA0E1E /* Property.swift in Sources */,
 				210B7C6F1F1A7A7F00B7C878 /* Enumerable.swift in Sources */,
 				210B7C751F1A7A7F00B7C878 /* WeakObjectSet.swift in Sources */,
 				04CF4D171FFCFC640077128E /* FileManager+.swift in Sources */,
@@ -689,6 +698,7 @@
 				210B7CF81F1A887600B7C878 /* StringTests.swift in Sources */,
 				210B7CF91F1A887600B7C878 /* WeakSetTests.swift in Sources */,
 				04348C27200C13F400BBCF10 /* SortTests.swift in Sources */,
+				041BB24F23E3907B00BA0E1E /* PropertyTests.swift in Sources */,
 				6B3BA6742086B32A00D83C47 /* OptionalTests.swift in Sources */,
 				210B7CF51F1A887600B7C878 /* ExtensionsTests.swift in Sources */,
 				04348C24200C136A00BBCF10 /* OptionSetTests.swift in Sources */,
@@ -701,6 +711,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041BB24D23E38CD500BA0E1E /* Property.swift in Sources */,
 				210B7CBC1F1A863200B7C878 /* DispatchTimer.swift in Sources */,
 				210B7CC11F1A863200B7C878 /* SynchronizedArray.swift in Sources */,
 				04CF4D181FFCFC640077128E /* FileManager+.swift in Sources */,
@@ -727,6 +738,7 @@
 				210B7CFF1F1A888900B7C878 /* StringTests.swift in Sources */,
 				210B7D001F1A888900B7C878 /* WeakSetTests.swift in Sources */,
 				04348C28200C13F400BBCF10 /* SortTests.swift in Sources */,
+				041BB25023E3907B00BA0E1E /* PropertyTests.swift in Sources */,
 				6B3BA6752086B32A00D83C47 /* OptionalTests.swift in Sources */,
 				210B7CFC1F1A888900B7C878 /* ExtensionsTests.swift in Sources */,
 				04348C25200C136A00BBCF10 /* OptionSetTests.swift in Sources */,
