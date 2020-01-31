@@ -44,16 +44,8 @@ queue.delayed(2) { // execute after 2 sec }
 Brings back `substring()` to/from/range with `Int`s
 
 ```swift
-let original = "0123456789"
-
-var substring = original.substring(from: 1)
-expect(substring) == "123456789"
-
-substring = original.substring(to: 9)
-expect(substring) == "012345678"
-
-substring = original.substring(with: 5..<6)
-expect(substring) == "5"
+let original = "😎🤣😋😎😭👤👁"
+expect(original[2..<5]) == "😋😎😭"
 ```
 
 ### Double
@@ -87,11 +79,10 @@ let sortedDesc = shuffled.sorted(property: { $0.id }, ascending: false)
 // [Model(id: "9"), Model(id: "8"), Model(id: "7"), ... Model(id: "0")]
 ```
 
-• shuffle
 • any item:
 
 ```swift
-let random = [1, 2, 3].any() // throws exception if collection empty. Use anyItem() to be safe.
+let random = [1, 2, 3].any() // throws exception if collection empty. anyItem() is safe.
 ```
 
 ### OOperation
