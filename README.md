@@ -195,9 +195,6 @@ UIViewController.presentAlert(title: "Title", message: "message", cancelButtonTi
 
 ### UIView constraints
 
-Easy.
-
-
 • size
 
 ```swift
