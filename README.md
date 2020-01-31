@@ -2,7 +2,7 @@
 
 
 
-[**DispatchTimer**](https://github.com/arkdan/ARKExtensions#dispatchtimer) | [Dispatch delay](https://github.com/arkdan/ARKExtensions#delay) | [Double.round](https://github.com/arkdan/ARKExtensions#double) | [**Collection**](https://github.com/arkdan/ARKExtensions#collection) | [**Operation**](https://github.com/arkdan/ARKExtensions#ooperation) | [OperationQueue](https://github.com/arkdan/ARKExtensions#ooperationqueue) | [**AlertController**](https://github.com/arkdan/ARKExtensions#alertcontroller) | [**UIView constraints**](https://github.com/arkdan/ARKExtensions#uiview-constraints) | [UIColor 255](https://github.com/arkdan/ARKExtensions#uicolor-255) | [WeakObjectSet](https://github.com/arkdan/ARKExtensions#weakobjectset)
+[**DispatchTimer**](https://github.com/arkdan/ARKExtensions#dispatchtimer) | [Dispatch delay](https://github.com/arkdan/ARKExtensions#delay) | [Double.round](https://github.com/arkdan/ARKExtensions#double) | [**Collection**](https://github.com/arkdan/ARKExtensions#collection) | [**Operation**](https://github.com/arkdan/ARKExtensions#ooperation) | [OperationQueue](https://github.com/arkdan/ARKExtensions#ooperationqueue) | [**AlertController**](https://github.com/arkdan/ARKExtensions#alertcontroller) | [**UIView constraints**](https://github.com/arkdan/ARKExtensions#uiview-constraints) | [UIColor 255](https://github.com/arkdan/ARKExtensions#uicolor-255)
 
 
 ### DispatchTimer
@@ -68,11 +68,10 @@ expect(rounded) == 0.12
 
 ### Collection
 
-• safe subscript - nil if out of bounds:
+• safe subscript; nil if out of bounds:
 
 ```swift
-guard let element = array[safe: 100500] else { return }
-// do stuff with element
+if let element = array[safe: 100500] {  }
 ```
 
 • property-based collection sort
@@ -164,7 +163,7 @@ queue.whenEmpty = {
 ```
 
 ### AlertController
-`UIViewController` extension, with clean and simple syntax for presenting alerts (UIAlertControllers). Callback when user taps either button, with `buttonIndex` as the parameter.
+Better syntax for presenting alerts.
 
 **The alerts queue up, fifo**. I.e. latter alers wait and don't show until user respond to former alerts.
 
@@ -196,21 +195,19 @@ UIViewController.presentAlert(title: "Title", message: "message", cancelButtonTi
 
 ### UIView constraints
 
-This one is pretty cool. What i have for you is a `UIView` extension, that leverages swift's powerful method overloading capabilities, to **easily define autolayout constraints in code.**
+Easy.
 
-• This syntax simplifies *most, but not all* autolayout boilerplate capabilities. That *most*, however, covers 100% of my needs so far:
 
-• size:
+• size
 
 ```swift
-let view = UIView(frame: .zero)
 view.constraint(.width, 100)
 view.constraint(.height, 40)
 // or
 view.constraint(size: (100, 40))
 ```
 
-• by center:
+• center
 
 ```swift
 let superview: UIView
@@ -218,12 +215,12 @@ superview.addSubview(view)
 
 superview.constraint(.centerX, .centerY, subview: view)
 
-// or offset 10 points to left:
+// offset 10 points to left:
 superview.constraint(.centerY, subview: view)
 superview.constraint(.centerX, subview: view, -10)
 ```
 
-• by pinning edges:
+• pinning edges
 
 ```swift
 // all 4, dead
@@ -237,7 +234,7 @@ superview.constraint(.top, .bottom, subview: view)
 superview.constraint(.leading, .trailing, subview: view, 10)
 ```
 
-• siblings:
+• siblings
 
 ```swift
 let superview: UIView
@@ -262,38 +259,10 @@ subview2.constraint(.top, to: .top, ofSibling: subview1)
 subview1.constraint(.trailing, to: .leading, ofSibling: subview2, constant: 20)
 ```
 
-• combine as you want, as you would in IB. Autolayout rules do not change.
-
-
 ### UIColor 255
 
-Convenience, `0 to 255` instead of `0 to 1`. Don`t worry about converting to CGFloat, too - works with Double, Int, UInt, and CGFloat, and you can mix if you want
-
+255 instead of 0 to 1.
 ```swift
-let rUint: UInt = 153
-let gInt = 102
-let bDouble = 51.0
-
-let color = UIColor(red255: rUint, green: gInt, blue: bDouble)
+let color = UIColor(red255: 153, green: 102, blue: 51.0)
 expect(color) == UIColor.brown
-```
-
-### WeakObjectSet
-
-A collection that stores weak references to its elements. *Set* because it uses a `Set` as backing storage.
-
-If you need multiple delegates, but don't want to get involved with NotificationCenter - `WeakObjectSet` is the data structure to hold your delegates.
-
-Pity we can't (yet) use protocols as the generic type `T`.
-
-```swift
-var object: Listener? = Listener(name: "aaa")
-
-let weakSet = WeakObjectSet<Listener>()
-
-weakSet.add(object!)
-expect(weakSet.contains(object!)) == true
-
-object = nil
-expect(weakSet.isEmpty) == true
 ```
